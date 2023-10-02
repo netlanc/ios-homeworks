@@ -17,9 +17,6 @@ class ProfileViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-//        profileHeaderView.frame.size = view.frame.size
-        profileHeaderView.frame.size.height = 200
-        
         profileHeaderView.frame = view.bounds
     }
     
