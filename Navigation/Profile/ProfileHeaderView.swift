@@ -1,8 +1,12 @@
 import UIKit
 
 
-class ProfileHeaderView: UIView {
 
+class ProfileHeaderView: UIView {
+    
+    private var statusText: String = ""
+    
+    let paddedTextField = TextFieldWithPadding(frame: CGRect(x: 20, y: 20, width: 200, height: 40))
     
     private let statusButton: UIButton = {
         let statusButton = UIButton()
@@ -69,14 +73,33 @@ class ProfileHeaderView: UIView {
     
     func commonInit(){
         
+        createTextField();
+        
         statusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        
+        paddedTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
         
         addSubview(avatarImageView)
         addSubview(fullNameLabel)
         addSubview(statusLabel)
         addSubview(statusButton)
+        addSubview(paddedTextField)
+    }
+    
+    func createTextField(){
+        
+        paddedTextField.placeholder = "Заполните текст…"
+        
+        paddedTextField.font = UIFont.systemFont(ofSize: 15)
+        
+        paddedTextField.backgroundColor = .white
+        paddedTextField.layer.cornerRadius = 12
+        paddedTextField.layer.borderWidth = 1
+        paddedTextField.layer.borderColor = UIColor.black.cgColor
+        
         
     }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -100,7 +123,7 @@ class ProfileHeaderView: UIView {
         
         statusButton.frame = CGRect(
             x: safeAreaInsets.left + padding,
-            y: avatarImageView.frame.maxY + padding,
+            y: avatarImageView.frame.maxY + padding + 20,
             width: viewWidth - padding * 2 - paddingOrientation,
             height: 50
         )
@@ -114,14 +137,47 @@ class ProfileHeaderView: UIView {
         
         statusLabel.frame = CGRect(
             x: avatarImageView.frame.maxX + padding,
-            y: statusButton.frame.minY - 34 - statusLabel.font.lineHeight,
+            y: statusButton.frame.minY - 54 - statusLabel.font.lineHeight,
             width: fullNameLabel.frame.width,
             height: statusLabel.font.lineHeight
+        )
+        
+        paddedTextField.frame = CGRect(
+            x: avatarImageView.frame.maxX + padding,
+            y: statusButton.frame.minY - 50,
+            width: fullNameLabel.frame.width,
+            height: 40
         )
         
     }
     
     @objc func buttonPressed() {
-        print(statusLabel.text ?? "А статус пока не задан")
+        //print(statusLabel.text ?? "А статус пока не задан")
+        
+        statusLabel.text = statusText
+    }
+    
+    @objc func statusTextChanged(_ textField: UITextField) {
+        statusText = textField.text ?? ""
     }
 }
+
+class TextFieldWithPadding: UITextField {
+    var textPadding = UIEdgeInsets(
+        top: 10,
+        left: 20,
+        bottom: 10,
+        right: 20
+    )
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        let rect = super.textRect(forBounds: bounds)
+        return rect.inset(by: textPadding)
+    }
+    
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        let rect = super.editingRect(forBounds: bounds)
+        return rect.inset(by: textPadding)
+    }
+}
+
