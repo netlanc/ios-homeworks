@@ -16,6 +16,7 @@
 		DE559FAB2AC4A63400797548 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE559FAA2AC4A63400797548 /* ProfileViewController.swift */; };
 		DE559FAD2AC4A92700797548 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE559FAC2AC4A92700797548 /* PostViewController.swift */; };
 		DE67F7082AC9DAB500F785B2 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE67F7072AC9DAB500F785B2 /* ProfileHeaderView.swift */; };
+		DEA8EDE32ACD5E1200F0C48C /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8EDE22ACD5E1200F0C48C /* TextFieldWithPadding.swift */; };
 		DED440162AC6120D008B3F9A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED440152AC6120D008B3F9A /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		DE559FAA2AC4A63400797548 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DE559FAC2AC4A92700797548 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		DE67F7072AC9DAB500F785B2 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		DEA8EDE22ACD5E1200F0C48C /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
 		DED440152AC6120D008B3F9A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 				DE559FA82AC4A60F00797548 /* FeedViewController.swift */,
 				DE559FAC2AC4A92700797548 /* PostViewController.swift */,
 				DED440152AC6120D008B3F9A /* InfoViewController.swift */,
+				DEA8EDE22ACD5E1200F0C48C /* TextFieldWithPadding.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				DE559FAB2AC4A63400797548 /* ProfileViewController.swift in Sources */,
 				DE559FA92AC4A60F00797548 /* FeedViewController.swift in Sources */,
 				DE559F952AC499F900797548 /* SceneDelegate.swift in Sources */,
+				DEA8EDE32ACD5E1200F0C48C /* TextFieldWithPadding.swift in Sources */,
 				DE67F7082AC9DAB500F785B2 /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
