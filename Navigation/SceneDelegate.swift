@@ -10,6 +10,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: scene)
         
+        
+        let loginViewController = LogInViewController()
+        loginViewController.title = "Логин"
+//        loginViewController.navigationBar.isHidden = true
+        loginViewController.view.backgroundColor = .systemBackground
+        
         let feedViewController = FeedViewController()
         feedViewController.title = "Лента"
         feedViewController.view.backgroundColor = .systemOrange
@@ -20,16 +26,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tabBarController = UITabBarController()
         
-        feedViewController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName: "note"), tag: 0)
-        profileViewController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person"), tag: 1)
+        loginViewController.tabBarItem = UITabBarItem(title: "Логин", image: UIImage(systemName: "person.crop.circle"), tag: 0)
+        feedViewController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName: "note"), tag: 1)
+        profileViewController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person"), tag: 2)
         
-        let controllers = [feedViewController, profileViewController]
+        let controllers = [
+            loginViewController,
+            feedViewController,
+//            profileViewController
+        ]
         tabBarController.viewControllers = controllers.map {
-            UINavigationController(rootViewController: $0)
+            let navController = UINavigationController(rootViewController: $0)
+            navController.navigationBar.isHidden = true
+            return navController
         }
-        tabBarController.selectedIndex = 1
+        tabBarController.selectedIndex = 0
         
         window.rootViewController = tabBarController
+        
         window.makeKeyAndVisible()
         
         self.window = window
