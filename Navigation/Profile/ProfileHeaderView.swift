@@ -43,26 +43,6 @@ class ProfileHeaderView: UIView {
         return statusButton
     }()
     
-    private lazy var titleButton: UIButton = {
-        
-        let titleButton = UIButton()
-        titleButton.setTitle("Set title", for: .normal)
-        titleButton.setTitleColor(.white, for: .normal)
-        
-        titleButton.backgroundColor = .systemRed
-        titleButton.layer.cornerRadius = 4
-        titleButton.layer.shadowRadius = 4
-        titleButton.layer.shadowColor = UIColor.black.cgColor
-        titleButton.layer.shadowOffset.width = 4
-        titleButton.layer.shadowOffset.height = 4
-        titleButton.layer.shadowOpacity = 0.7
-        titleButton.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
-        
-        titleButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        return titleButton
-    }()
-    
     private lazy var statusLabel: UILabel = {
         let statusLabel = UILabel()
         statusLabel.text = "Я есть Грут...Я есть Грут...Я есть Грут...Я есть..."
@@ -125,7 +105,6 @@ class ProfileHeaderView: UIView {
         addSubview(fullNameLabel)
         addSubview(statusLabel)
         addSubview(statusButton)
-        addSubview(titleButton)
         addSubview(paddedTextField)
         
         
@@ -147,11 +126,6 @@ class ProfileHeaderView: UIView {
             statusButton.leadingAnchor.constraint(equalTo: safeAreaGuide.leadingAnchor, constant: 16),
             statusButton.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: -16),
             statusButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            titleButton.bottomAnchor.constraint(equalTo: safeAreaGuide.bottomAnchor),
-            titleButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            titleButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            titleButton.heightAnchor.constraint(equalToConstant: 50),
             
             
             fullNameLabel.topAnchor.constraint(equalTo: safeAreaGuide.topAnchor, constant: 27),
