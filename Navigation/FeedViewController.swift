@@ -4,16 +4,6 @@ class FeedViewController: UIViewController {
     
     let post = Post(title: "Заголовок поста")
     
-    // создание кнопки "Показать пост"
-//    private var showPostButton: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.setTitle("Показать пост", for: .normal)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        return button
-//    }()
-
-    
-    
     private lazy var postButton1: UIButton = {
         let postButton1 = UIButton()
         postButton1.setTitle("Показать пост", for: .normal)
