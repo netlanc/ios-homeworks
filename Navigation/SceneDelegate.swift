@@ -32,8 +32,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let controllers = [
             loginViewController,
-            feedViewController,
-//            profileViewController
+//            feedViewController,
+            profileViewController
         ]
         tabBarController.viewControllers = controllers.map {
             let navController = UINavigationController(rootViewController: $0)
