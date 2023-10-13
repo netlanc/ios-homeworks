@@ -19,15 +19,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         feedViewController.title = "Лента"
         feedViewController.view.backgroundColor = .systemOrange
         
-//        let profileViewController = LogInViewController()
+        let profileViewController = ProfileViewController()
 //        profileViewController.title = "Профиль"
-//        profileViewController.view.backgroundColor = .lightGray
+        profileViewController.view.backgroundColor = .lightGray
         
         let tabBarController = UITabBarController()
         
         loginViewController.tabBarItem = UITabBarItem(title: "Логин", image: UIImage(systemName: "person.crop.circle"), tag: 0)
-        feedViewController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName: "note"), tag: 0)
-//        profileViewController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person"), tag: 1)
+        feedViewController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName: "note"), tag: 1)
+//        profileViewController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person"), tag: 2)
         
         let controllers = [
             feedViewController,

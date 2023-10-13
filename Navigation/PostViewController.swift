@@ -1,12 +1,12 @@
 import UIKit
 
-struct Post {
+struct PostButton {
     let title: String
 }
 
 class PostViewController: UIViewController {
     
-    var post: Post?
+    var post: PostButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()

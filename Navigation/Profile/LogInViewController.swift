@@ -9,7 +9,6 @@ class LogInViewController: UIViewController {
         scrollView.showsHorizontalScrollIndicator = false
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        //        scrollView.backgroundColor = .systemBrown
         
         return scrollView
     }()
@@ -136,13 +135,7 @@ class LogInViewController: UIViewController {
         
         contentView.addSubview(logoImageView)
         contentView.addSubview(stackLoginPassword)
-//        contentView.addSubview(loginTextField)
-//        contentView.addSubview(passwordTextField)
         contentView.addSubview(logInButton)
-        
-        // todo: переделать блок с email b password на table
-        // внутри которого будут 2 ячейки с нужным оформлением и прозрачными textfield
-        // или на стек в котором будут 2 textfield и между ними view как сепаратор
         
         setupContraints()
         
@@ -200,16 +193,6 @@ class LogInViewController: UIViewController {
             passwordTextField.bottomAnchor.constraint(equalTo: stackLoginPassword.bottomAnchor),
             passwordTextField.heightAnchor.constraint(equalToConstant: 50),
             passwordTextField.widthAnchor.constraint(equalTo: stackLoginPassword.widthAnchor),
-            
-//            loginTextField.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-//            loginTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 120),
-//            loginTextField.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -16),
-//            loginTextField.heightAnchor.constraint(equalToConstant: 50),
-            
-//            passwordTextField.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-//            passwordTextField.topAnchor.constraint(equalTo: loginTextField.bottomAnchor, constant: -1),
-//            passwordTextField.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -16),
-//            passwordTextField.heightAnchor.constraint(equalToConstant: 50),
             
             logInButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             logInButton.topAnchor.constraint(equalTo: stackLoginPassword.bottomAnchor, constant: 16),

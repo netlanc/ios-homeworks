@@ -4,8 +4,6 @@ class ProfileHeaderView: UIView {
     
     private var statusText: String = ""
     
-    //    let paddedTextField = TextFieldWithPadding(frame: CGRect(x: 20, y: 20, width: 200, height: 40))
-    
     private lazy var paddedTextField: TextFieldWithPadding = {
         let paddedTextField = TextFieldWithPadding(frame: CGRect(x: 20, y: 20, width: 200, height: 40))
         paddedTextField.placeholder = "Заполните текст…"
@@ -104,7 +102,6 @@ class ProfileHeaderView: UIView {
         addSubview(statusLabel)
         addSubview(statusButton)
         addSubview(paddedTextField)
-        
         
         setupContraints()
     }
