@@ -1,14 +1,5 @@
 import UIKit
 
-struct Post {
-    let author: String
-    let title: String
-    let description: String
-    let image: String
-    let likes: Int
-    let views: Int
-}
-
 class PostTableViewCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
@@ -74,8 +65,8 @@ class PostTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         contentView.addSubview(titleLabel)
-        contentView.addSubview(descriptionText)
         contentView.addSubview(postImageView)
+        contentView.addSubview(descriptionText)
         contentView.addSubview(likesLabel)
         contentView.addSubview(viewsLabel)
         
@@ -88,8 +79,8 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func configure(with post: Post) {
+//        authorLabel.text = post.author
         titleLabel.text = post.title
-        authorLabel.text = post.author
         descriptionText.text = post.description
         postImageView.image = UIImage(named: post.image)
         likesLabel.text = "Likes: \(post.likes)"
@@ -111,14 +102,16 @@ class PostTableViewCell: UITableViewCell {
             descriptionText.topAnchor.constraint(equalTo: postImageView.bottomAnchor, constant: 16),
             descriptionText.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             descriptionText.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            descriptionText.bottomAnchor.constraint(equalTo: likesLabel.topAnchor, constant: -10),
+            //descriptionText.bottomAnchor.constraint(equalTo: likesLabel.topAnchor, constant: -10),
             
             likesLabel.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: 16),
             likesLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            viewsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
             
             viewsLabel.topAnchor.constraint(equalTo: descriptionText.bottomAnchor, constant: 16),
             viewsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             viewsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
+            
         ])
     }
     
