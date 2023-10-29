@@ -192,18 +192,6 @@ class LogInViewController: UIViewController {
             stackLoginPassword.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -16),
             stackLoginPassword.heightAnchor.constraint(equalToConstant: 100.5),
             
-//            loginTextField.topAnchor.constraint(equalTo: stackLoginPassword.topAnchor),
-//            loginTextField.heightAnchor.constraint(equalToConstant: 50),
-//            loginTextField.widthAnchor.constraint(equalTo: stackLoginPassword.widthAnchor),
-//            
-//            viewSeparator.topAnchor.constraint(equalTo: loginTextField.bottomAnchor),
-//            viewSeparator.heightAnchor.constraint(equalToConstant: 0.5),
-//            viewSeparator.widthAnchor.constraint(equalTo: stackLoginPassword.widthAnchor),
-//            
-//            passwordTextField.topAnchor.constraint(equalTo: viewSeparator.bottomAnchor),
-//            passwordTextField.heightAnchor.constraint(equalToConstant: 50),
-//            passwordTextField.widthAnchor.constraint(equalTo: stackLoginPassword.widthAnchor),
-            
             logInButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             logInButton.topAnchor.constraint(equalTo: stackLoginPassword.bottomAnchor, constant: 16),
             logInButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -16),
@@ -230,6 +218,7 @@ class LogInViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         
         setupKeyboardObservers()
     }

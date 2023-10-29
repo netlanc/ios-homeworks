@@ -2,6 +2,10 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    
+    var profilePhotos: [ProfilePhoto] = ProfilePhoto.make() // массив фотографий
+    
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView.init(
             frame: .zero,
@@ -19,16 +23,17 @@ class ProfileViewController: UIViewController {
         
         tuneTableView()
         setupContraints()
+        
     }
     
     
     private func tuneTableView() {
         
-        // что бы header скролился вместе с постами? добавляем его тут
-//        let headerView = ProfileHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 200))
-//        tableView.tableHeaderView = headerView
-//        
+        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "photoCell")
+        
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "postCell")
+        
+        tableView.tintColor = .red
         
         // Указываем основные делегаты таблицы
         tableView.delegate = self
@@ -43,6 +48,11 @@ class ProfileViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
 }
@@ -61,6 +71,21 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 200 // Set the appropriate height
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            // Тап произошел на первой ячейке "Фото"
+            let galleryVC = GalleryPhotosViewController()
+            galleryVC.galleryPhotos = profilePhotos
+            
+            
+            let backBtn = UIBarButtonItem()
+            backBtn.title = "Назад"
+            navigationController?.navigationItem.backBarButtonItem = backBtn
+            
+            navigationController?.pushViewController(galleryVC, animated: true)
+        }
+    }
 }
 
 extension ProfileViewController: UITableViewDataSource {
@@ -69,14 +94,31 @@ extension ProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return posts.count //+ 1
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
-        let post = posts[indexPath.row]
-        cell.configure(with: post)
-        
-        return cell
+        if indexPath.row == 0 {
+            // Это ячейка "Фото"
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as? PhotosTableViewCell else {
+                fatalError("Не удалось создать ячейку")
+            }
+            
+            cell.photos = profilePhotos
+            
+            return cell
+        } else {
+            // Это обычная ячейка для поста
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? PostTableViewCell else {
+                fatalError("Не удалось создать ячейку")
+            }
+            
+            let post = posts[indexPath.row - 1]
+            cell.configure(with: post)
+            
+            return cell
+        }
     }
+    
 }

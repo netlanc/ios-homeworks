@@ -20,26 +20,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         feedViewController.view.backgroundColor = .systemOrange
         
         let profileViewController = ProfileViewController()
-//        profileViewController.title = "Профиль"
+        profileViewController.title = "Профиль"
         profileViewController.view.backgroundColor = .lightGray
+        
+//        let photosView = PhotosViewController()
+//        photosView.title = "Профиль"
+//        photosView.view.backgroundColor = .lightGray
         
         let tabBarController = UITabBarController()
         
         loginViewController.tabBarItem = UITabBarItem(title: "Логин", image: UIImage(systemName: "person.crop.circle"), tag: 0)
         feedViewController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName: "note"), tag: 1)
-//        profileViewController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person"), tag: 2)
+        profileViewController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person"), tag: 2)
+        
+        
+//        photosView.tabBarItem = UITabBarItem(title: "Пхотос", image: UIImage(systemName: "photos"), tag: 2)
         
         let controllers = [
             feedViewController,
             loginViewController,
-//            profileViewController
+            profileViewController,
+//            photosView
         ]
         tabBarController.viewControllers = controllers.map {
             let navController = UINavigationController(rootViewController: $0)
-            navController.navigationBar.isHidden = true
+//            navController.navigationBar.isHidden = true
             return navController
         }
-        tabBarController.selectedIndex = 1
+        tabBarController.selectedIndex = 2
         
         window.rootViewController = tabBarController
         
