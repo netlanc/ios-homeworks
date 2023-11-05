@@ -1,6 +1,7 @@
 import UIKit
 
 final class GalleryPhotosViewController: UIViewController {
+    
     var galleryPhotos: [ProfilePhoto] = []
 
     private let collectionView: UICollectionView = {

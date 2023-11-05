@@ -29,17 +29,20 @@ class ProfileViewController: UIViewController {
     
     private func tuneTableView() {
         
-        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "photoCell")
+//        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "photoCell")
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.reuseIdentifier)
         
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: "postCell")
         
         tableView.tintColor = .red
         
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        
         // Указываем основные делегаты таблицы
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
     
     private func setupContraints() {
         NSLayoutConstraint.activate([
@@ -89,23 +92,20 @@ extension ProfileViewController: UITableViewDelegate {
 }
 
 extension ProfileViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count //+ 1
+        return posts.count + 1
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            // Это ячейка "Фото"
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as? PhotosTableViewCell else {
-                fatalError("Не удалось создать ячейку")
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseIdentifier, for: indexPath) as? TableViewCell else {
+                assertionFailure("TableViewCell is nil")
+                return UITableViewCell()
             }
             
-            cell.photos = profilePhotos
+            cell.update()
             
             return cell
         } else {

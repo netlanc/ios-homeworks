@@ -1,67 +1,49 @@
 
 import UIKit
-// Создайте пользовательскую ячейку для отображения фотографий в коллекции
-class PhotosCollectionViewCell: UICollectionViewCell {
-    static var identifier: String {
-        return "PhotosCollectionViewCell"
-    }
 
+final class CollectionViewCell: UICollectionViewCell {
     
-    private enum Constants {
-        // Generic layout constants
-        static let verticalSpacing: CGFloat = 8.0
-        static let horizontalPadding: CGFloat = 16.0
-        static let profileDescriptionVerticalPadding: CGFloat = 8.0
-        
-        // contentView layout constants
-        static let contentViewCornerRadius: CGFloat = 4.0
+    static let reuseIdentifier = "CollectionViewCell"
 
-        // profileImageView layout constants
-        static let imageHeight: CGFloat = 180.0
-    }
-    
     let imageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .black
+        
+        imageView.layer.cornerRadius = 6
         
         return imageView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        
-        contentView.clipsToBounds = true
-        contentView.backgroundColor = .white
-        
-        
-        // Настройте внешний вид вашей ячейки коллекции, добавьте imageView и установите его констрейнты
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        contentView.addSubview(imageView)
-        
-        
-        NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: Constants.imageHeight),
-        ])
-        
-        
+        self.setupUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(
-        with photo: ProfilePhoto
-    ) {
-        imageView.image = UIImage(named: photo.image)
+    private func setupUI() {
+        self.contentView.addSubview(self.imageView)
+        
+        
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
+        ])
     }
+    
+    func setup(_ photo: ProfilePhoto, _ width: CGFloat) {
+        imageView.image = UIImage(named: photo.image)
+        
+        imageView.widthAnchor.constraint(equalToConstant: width).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: width).isActive = true
+        
+    }
+    
 }
