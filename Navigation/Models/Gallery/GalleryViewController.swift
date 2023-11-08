@@ -1,6 +1,6 @@
 import UIKit
 
-final class GalleryPhotosViewController: UIViewController {
+final class GalleryViewController: UIViewController {
     
     var galleryPhotos: [ProfilePhoto] = []
 
@@ -25,9 +25,8 @@ final class GalleryPhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        
         view.backgroundColor = .white
-        title = "Фото Галерея"
+        title = "Фото галерея"
     
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -39,10 +38,10 @@ final class GalleryPhotosViewController: UIViewController {
     func setupConstraints() {
       
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
 
@@ -67,22 +66,14 @@ final class GalleryPhotosViewController: UIViewController {
     }
 }
 
-extension GalleryPhotosViewController: UICollectionViewDataSource {
+extension GalleryViewController: UICollectionViewDataSource {
     
-    func collectionView(
-        _ collectionView: UICollectionView,
-        numberOfItemsInSection section: Int
-    ) -> Int {
+    func collectionView(_ collectionView: UICollectionView,numberOfItemsInSection section: Int) -> Int {
         galleryPhotos.count
     }
 
-    func collectionView(
-        _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath
-    ) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: GalleryCollectionViewCell.identifier,
-            for: indexPath) as! GalleryCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.identifier,for: indexPath) as! GalleryCollectionViewCell
         
         let photo = galleryPhotos[indexPath.row]
         cell.setup(with: photo)
@@ -91,12 +82,9 @@ extension GalleryPhotosViewController: UICollectionViewDataSource {
     }
 }
 
-extension GalleryPhotosViewController: UICollectionViewDelegateFlowLayout {
+extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     
-    private func itemWidth(
-        for width: CGFloat,
-        spacing: CGFloat
-    ) -> CGFloat {
+    private func itemWidth(for width: CGFloat,spacing: CGFloat) -> CGFloat {
         let itemsInRow: CGFloat = 3
         
         let totalSpacing: CGFloat = 3 * spacing + (itemsInRow - 1) * spacing
@@ -105,11 +93,7 @@ extension GalleryPhotosViewController: UICollectionViewDelegateFlowLayout {
         return floor(finalWidth)
     }
     
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAt indexPath: IndexPath
-    ) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = itemWidth(
             for: view.frame.width,
             spacing: LayoutConstant.spacing
@@ -118,11 +102,7 @@ extension GalleryPhotosViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: width)
     }
 
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        insetForSectionAt section: Int
-    ) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,insetForSectionAt section: Int) -> UIEdgeInsets {
         UIEdgeInsets(
             top: LayoutConstant.spacing,
             left: LayoutConstant.spacing,
@@ -131,27 +111,16 @@ extension GalleryPhotosViewController: UICollectionViewDelegateFlowLayout {
         )
     }
 
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        minimumLineSpacingForSectionAt section: Int
-    ) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         LayoutConstant.spacing
     }
 
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        minimumInteritemSpacingForSectionAt section: Int
-    ) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         LayoutConstant.spacing
     }
     
     func collectionView(
-        _ collectionView: UICollectionView,
-        willDisplay cell: UICollectionViewCell,
-        forItemAt indexPath: IndexPath
-    ) {
+_ collectionView: UICollectionView,willDisplay cell: UICollectionViewCell,forItemAt indexPath: IndexPath) {
         cell.contentView.backgroundColor = .white
     }
     

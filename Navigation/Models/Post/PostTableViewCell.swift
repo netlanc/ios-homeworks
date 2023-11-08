@@ -63,15 +63,9 @@ class PostTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(postImageView)
-        contentView.addSubview(descriptionText)
-        contentView.addSubview(likesLabel)
-        contentView.addSubview(viewsLabel)
         
+        tunePost()
         setupContraints();
-        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -85,6 +79,15 @@ class PostTableViewCell: UITableViewCell {
         postImageView.image = UIImage(named: post.image)
         likesLabel.text = "Likes: \(post.likes)"
         viewsLabel.text = "Views: \(post.views)"
+    }
+    
+    private func tunePost() {
+        
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(postImageView)
+        contentView.addSubview(descriptionText)
+        contentView.addSubview(likesLabel)
+        contentView.addSubview(viewsLabel)
     }
     
     private func setupContraints() {

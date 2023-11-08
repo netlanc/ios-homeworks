@@ -83,15 +83,15 @@ class ProfileHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        tuneHeader()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commonInit()
+        tuneHeader()
     }
     
-    func commonInit(){
+    func tuneHeader(){
         
         statusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         

@@ -5,16 +5,13 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Создание кнопки
         let button = UIButton(type: .system)
         button.setTitle("Нажми", for: .normal)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        // добавляет кнопку на экран
         view.addSubview(button)
         
-        // Определение контейнеров Auto Layout
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button.centerYAnchor.constraint(equalTo: view.centerYAnchor)

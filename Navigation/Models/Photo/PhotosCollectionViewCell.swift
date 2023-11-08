@@ -1,24 +1,31 @@
 import UIKit
 
-final class GalleryCollectionViewCell: UICollectionViewCell {
-    
+class PhotosCollectionViewCell: UICollectionViewCell {
     static var identifier: String {
-        return "GalleryCollectionViewCell"
+        return "PhotosCollectionViewCell"
     }
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        imageView.layer.cornerRadius = 6
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        
         return imageView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.clipsToBounds = true
-        
         contentView.addSubview(imageView)
+        
+        setupContraints()
+        
+    }
+    
+    private func setupContraints() {
         
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -26,6 +33,7 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
+        
     }
     
     required init?(coder: NSCoder) {

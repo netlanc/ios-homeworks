@@ -20,11 +20,9 @@
 		DE6914E52ACED34700A58500 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6914E42ACED34700A58500 /* LogInViewController.swift */; };
 		DE97B26A2ADC22B5006B2826 /* ProfilePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97B2692ADC22B5006B2826 /* ProfilePost.swift */; };
 		DEA3FBA62AEEC1030003E196 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FBA52AEEC1030003E196 /* PhotosTableViewCell.swift */; };
-		DEA3FBA82AEEC12B0003E196 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FBA72AEEC12B0003E196 /* PhotosViewController.swift */; };
 		DEA3FBAA2AEEC15C0003E196 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FBA92AEEC15C0003E196 /* PhotosCollectionViewCell.swift */; };
-		DEA3FBAC2AEEE7D30003E196 /* GalleryPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FBAB2AEEE7D30003E196 /* GalleryPhotosViewController.swift */; };
+		DEA3FBAC2AEEE7D30003E196 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FBAB2AEEE7D30003E196 /* GalleryViewController.swift */; };
 		DEA3FBAE2AEEE84C0003E196 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FBAD2AEEE84C0003E196 /* GalleryCollectionViewCell.swift */; };
-		DEA3FBB12AEF10050003E196 /* PhotoCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FBB02AEF10050003E196 /* PhotoCollectionVC.swift */; };
 		DEA8EDE32ACD5E1200F0C48C /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8EDE22ACD5E1200F0C48C /* TextFieldWithPadding.swift */; };
 		DEBA1CAB2ACF47BB0027C8B5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBA1CAA2ACF47BB0027C8B5 /* Extension.swift */; };
 		DED440162AC6120D008B3F9A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED440152AC6120D008B3F9A /* InfoViewController.swift */; };
@@ -47,11 +45,9 @@
 		DE6914E42ACED34700A58500 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		DE97B2692ADC22B5006B2826 /* ProfilePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePost.swift; sourceTree = "<group>"; };
 		DEA3FBA52AEEC1030003E196 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
-		DEA3FBA72AEEC12B0003E196 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		DEA3FBA92AEEC15C0003E196 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
-		DEA3FBAB2AEEE7D30003E196 /* GalleryPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPhotosViewController.swift; sourceTree = "<group>"; };
+		DEA3FBAB2AEEE7D30003E196 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		DEA3FBAD2AEEE84C0003E196 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
-		DEA3FBB02AEF10050003E196 /* PhotoCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionVC.swift; sourceTree = "<group>"; };
 		DEA8EDE22ACD5E1200F0C48C /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
 		DEBA1CAA2ACF47BB0027C8B5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DED440152AC6120D008B3F9A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -88,19 +84,15 @@
 		DE559F912AC499F900797548 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				DE9C1A7E2AFBE888005233EA /* Extension */,
+				DE9C1A7D2AFBE861005233EA /* Feed */,
+				DE9C1A7C2AFBE838005233EA /* App */,
 				DEA3FBA22AEEB6160003E196 /* Models */,
 				DE67F7062AC9DA7100F785B2 /* Profile */,
-				DE559F922AC499F900797548 /* AppDelegate.swift */,
-				DE559F942AC499F900797548 /* SceneDelegate.swift */,
 				DE559F962AC499F900797548 /* ViewController.swift */,
 				DE559F9B2AC499FA00797548 /* Assets.xcassets */,
 				DE559F9D2AC499FA00797548 /* LaunchScreen.storyboard */,
 				DE559FA02AC499FA00797548 /* Info.plist */,
-				DE559FA82AC4A60F00797548 /* FeedViewController.swift */,
-				DE559FAC2AC4A92700797548 /* PostViewController.swift */,
-				DED440152AC6120D008B3F9A /* InfoViewController.swift */,
-				DEA8EDE22ACD5E1200F0C48C /* TextFieldWithPadding.swift */,
-				DEBA1CAA2ACF47BB0027C8B5 /* Extension.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -111,13 +103,35 @@
 				DE559FAA2AC4A63400797548 /* ProfileViewController.swift */,
 				DE6914E42ACED34700A58500 /* LogInViewController.swift */,
 				DE2CBAB82AD957B0004C5EF3 /* ProfileHeaderView.swift */,
-				DE2CBABB2AD967AD004C5EF3 /* PostTableViewCell.swift */,
-				DEA3FBA52AEEC1030003E196 /* PhotosTableViewCell.swift */,
-				DEA3FBA92AEEC15C0003E196 /* PhotosCollectionViewCell.swift */,
-				DEA3FBA72AEEC12B0003E196 /* PhotosViewController.swift */,
-				DEA3FBB02AEF10050003E196 /* PhotoCollectionVC.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		DE9C1A7C2AFBE838005233EA /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DE559F922AC499F900797548 /* AppDelegate.swift */,
+				DE559F942AC499F900797548 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DE9C1A7D2AFBE861005233EA /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				DE559FA82AC4A60F00797548 /* FeedViewController.swift */,
+				DED440152AC6120D008B3F9A /* InfoViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		DE9C1A7E2AFBE888005233EA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DEA8EDE22ACD5E1200F0C48C /* TextFieldWithPadding.swift */,
+				DEBA1CAA2ACF47BB0027C8B5 /* Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		DEA3FBA22AEEB6160003E196 /* Models */ = {
@@ -134,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				DEFD80F42AE978E9000D5E4A /* ProfilePhoto.swift */,
+				DEA3FBA52AEEC1030003E196 /* PhotosTableViewCell.swift */,
+				DEA3FBA92AEEC15C0003E196 /* PhotosCollectionViewCell.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -142,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				DE97B2692ADC22B5006B2826 /* ProfilePost.swift */,
+				DE559FAC2AC4A92700797548 /* PostViewController.swift */,
+				DE2CBABB2AD967AD004C5EF3 /* PostTableViewCell.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -149,7 +167,7 @@
 		DEA3FBAF2AEEE88B0003E196 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
-				DEA3FBAB2AEEE7D30003E196 /* GalleryPhotosViewController.swift */,
+				DEA3FBAB2AEEE7D30003E196 /* GalleryViewController.swift */,
 				DEA3FBAD2AEEE84C0003E196 /* GalleryCollectionViewCell.swift */,
 			);
 			path = Gallery;
@@ -226,15 +244,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEA3FBA62AEEC1030003E196 /* PhotosTableViewCell.swift in Sources */,
-				DEA3FBA82AEEC12B0003E196 /* PhotosViewController.swift in Sources */,
 				DE559FAD2AC4A92700797548 /* PostViewController.swift in Sources */,
 				DE559F972AC499F900797548 /* ViewController.swift in Sources */,
 				DE2CBABC2AD967AD004C5EF3 /* PostTableViewCell.swift in Sources */,
 				DE559F932AC499F900797548 /* AppDelegate.swift in Sources */,
-				DEA3FBAC2AEEE7D30003E196 /* GalleryPhotosViewController.swift in Sources */,
+				DEA3FBAC2AEEE7D30003E196 /* GalleryViewController.swift in Sources */,
 				DE97B26A2ADC22B5006B2826 /* ProfilePost.swift in Sources */,
 				DED440162AC6120D008B3F9A /* InfoViewController.swift in Sources */,
-				DEA3FBB12AEF10050003E196 /* PhotoCollectionVC.swift in Sources */,
 				DEBA1CAB2ACF47BB0027C8B5 /* Extension.swift in Sources */,
 				DE559FAB2AC4A63400797548 /* ProfileViewController.swift in Sources */,
 				DE559FA92AC4A60F00797548 /* FeedViewController.swift in Sources */,

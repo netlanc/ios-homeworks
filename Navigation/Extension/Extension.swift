@@ -14,13 +14,8 @@ extension UIImage {
 
 extension LogInViewController: UITextFieldDelegate {
     
-    func textFieldShouldReturn(
-        _ textField: UITextField
-    ) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
-        print(7)
-        
         return true
     }
 }

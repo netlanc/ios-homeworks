@@ -2,8 +2,6 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-//    let post = Post(title: "Заголовок поста")
-    
     private lazy var postButton1: UIButton = {
         let postButton1 = UIButton()
         postButton1.setTitle("Показать пост", for: .normal)
