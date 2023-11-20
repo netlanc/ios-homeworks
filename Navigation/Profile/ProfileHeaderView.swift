@@ -1,6 +1,9 @@
 import UIKit
 
+
 class ProfileHeaderView: UIView {
+    
+    weak var profileVC: profileVCDelegate?
     
     private var statusText: String = ""
     
@@ -65,6 +68,9 @@ class ProfileHeaderView: UIView {
         return fullNameLabel
     }()
     
+    
+    var avatarPositionCenter = CGPoint()
+    
     private lazy var avatarImageView: UIImageView = {
         let avatarImageView = UIImageView()
         let image = UIImage(named: "Grut")
@@ -78,8 +84,87 @@ class ProfileHeaderView: UIView {
         
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         
+        let avatarTapOpenGesture = UITapGestureRecognizer(target: self, action: #selector(avatarOpenPreview))
+        avatarImageView.addGestureRecognizer(avatarTapOpenGesture)
+        avatarImageView.isUserInteractionEnabled = true
+        
         return avatarImageView
     }()
+    
+    private lazy var avatarBgrView: UIView = {
+//        let avatarBgrView = UIView()
+        let avatarBgrView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        avatarBgrView.backgroundColor = .darkGray
+        avatarBgrView.isHidden = true
+        avatarBgrView.alpha = 0
+        
+        avatarBgrView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return avatarBgrView
+    }()
+    
+    private lazy var avatarCloseButton: UIButton = {
+        let avatarCloseButton = UIButton()
+        avatarCloseButton.setImage(UIImage(systemName: "xmark"), for: .normal)
+        avatarCloseButton.tintColor = .black
+        avatarCloseButton.alpha = 0
+        
+        avatarCloseButton.backgroundColor = .clear
+        avatarCloseButton.contentMode = .scaleToFill
+        
+        avatarCloseButton.addTarget(self, action: #selector(avatarClosePreview), for: .touchUpInside)
+        
+        avatarCloseButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        return avatarCloseButton
+    }()
+    
+    @objc func avatarOpenPreview() {
+
+        profileVC?.scrrollStop()
+        
+        self.avatarPositionCenter = avatarImageView.center
+        let scale = UIScreen.main.bounds.width / avatarImageView.bounds.width
+        
+        UIView.animate(withDuration: 0.5) {
+            self.avatarImageView.center = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY - self.avatarPositionCenter.y)
+            self.avatarImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
+            self.avatarImageView.layer.cornerRadius = 0
+            self.avatarImageView.layer.borderWidth = 1
+            
+            self.avatarBgrView.isHidden = false
+            self.avatarBgrView.alpha = 0.5
+        } completion: { finished in
+            UIView.animate(withDuration: 0.3) {
+                self.avatarCloseButton.alpha = 1
+            }
+        }
+        
+    }
+    
+    @objc func avatarClosePreview() {
+        
+        
+print("close")
+        UIImageView.animate(withDuration: 0.3) {
+            
+            self.avatarCloseButton.alpha = 0
+            self.profileVC?.scrrollRun()
+            
+        } completion: { finished in
+            
+            UIView.animate(withDuration: 0.5) {
+            
+                self.avatarImageView.center = self.avatarPositionCenter
+                self.avatarImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.width / 2
+                self.avatarImageView.layer.borderWidth = 3
+                
+                self.avatarBgrView.alpha = 0
+            }
+        }
+        
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -97,11 +182,15 @@ class ProfileHeaderView: UIView {
         
         paddedTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
         
-        addSubview(avatarImageView)
         addSubview(fullNameLabel)
         addSubview(statusLabel)
         addSubview(statusButton)
         addSubview(paddedTextField)
+        
+        
+        addSubview(avatarBgrView)
+        addSubview(avatarCloseButton)
+        addSubview(avatarImageView)
         
         setupContraints()
     }
@@ -133,7 +222,10 @@ class ProfileHeaderView: UIView {
             
             paddedTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 10),
             paddedTextField.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 16),
-            paddedTextField.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: -16)
+            paddedTextField.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: -16),
+            
+            avatarCloseButton.topAnchor.constraint(equalTo: safeAreaGuide.topAnchor, constant: 16),
+            avatarCloseButton.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: -16),
             
         ])
     }
