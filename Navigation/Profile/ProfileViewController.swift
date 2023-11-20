@@ -24,7 +24,6 @@ class ProfileViewController: UIViewController {
         #else
         view.backgroundColor = .systemBlue
         #endif
-    
         
         view.addSubview(tableView)
         
