@@ -12,15 +12,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let loginViewController = LogInViewController()
         loginViewController.title = "Логин"
-        loginViewController.view.backgroundColor = .systemBackground
+        //loginViewController.view.backgroundColor = .systemBackground
         
         let feedViewController = FeedViewController()
         feedViewController.title = "Лента"
-        feedViewController.view.backgroundColor = .systemOrange
+        //feedViewController.view.backgroundColor = .systemOrange
         
         let profileViewController = ProfileViewController()
         profileViewController.title = "Профиль"
-        profileViewController.view.backgroundColor = .lightGray
+//        profileViewController.view.backgroundColor = .lightGray
         
         let tabBarController = UITabBarController()
         

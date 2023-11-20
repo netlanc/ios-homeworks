@@ -17,6 +17,15 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // что бы увидеть что цвет фона зависит от выбранной схемы
+        // пришлось изменить один констрейн в методе setupContraints
+        #if DEBUG
+        view.backgroundColor = .systemRed
+        #else
+        view.backgroundColor = .systemBlue
+        #endif
+    
+        
         view.addSubview(tableView)
         
         tuneTableView()
@@ -37,8 +46,11 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupContraints() {
+        
+        // пришлось изменить один констрейн что бы был виде фон в зависимости от выбранной схемы
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//            tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
