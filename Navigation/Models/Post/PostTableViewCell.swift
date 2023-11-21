@@ -1,7 +1,10 @@
 import UIKit
 import StorageService
+import iOSIntPackage
 
 class PostTableViewCell: UITableViewCell {
+    
+    let imageProcessor = ImageProcessor()
     
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
@@ -77,9 +80,19 @@ class PostTableViewCell: UITableViewCell {
 //        authorLabel.text = post.author
         titleLabel.text = post.title
         descriptionText.text = post.description
-        postImageView.image = UIImage(named: post.image)
         likesLabel.text = "Likes: \(post.likes)"
         viewsLabel.text = "Views: \(post.views)"
+        
+  
+        if let postImage = UIImage(named: post.image) {
+            
+//            postImageView.image = postImage
+            
+            imageProcessor.processImage(sourceImage: postImage, filter: .fade) { imageFilter in
+                self.postImageView.image = imageFilter
+            }
+        }
+//        postImageView.image = UIImage(named: post.image)
     }
     
     private func tunePost() {
