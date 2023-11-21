@@ -1,4 +1,5 @@
 import UIKit
+import SnapKit
 
 class ProfileViewController: UIViewController {
     
@@ -9,7 +10,7 @@ class ProfileViewController: UIViewController {
             frame: .zero,
             style: .grouped
         )
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+//        tableView.translatesAutoresizingMaskIntoConstraints = false
         
         return tableView
     }()
@@ -19,11 +20,11 @@ class ProfileViewController: UIViewController {
         
         // что бы увидеть что цвет фона зависит от выбранной схемы
         // пришлось изменить один констрейн в методе setupContraints
-        #if DEBUG
-        view.backgroundColor = .systemRed
-        #else
-        view.backgroundColor = .systemBlue
-        #endif
+//        #if DEBUG
+//        view.backgroundColor = .systemRed
+//        #else
+//        view.backgroundColor = .systemBlue
+//        #endif
         
         view.addSubview(tableView)
         
@@ -47,13 +48,21 @@ class ProfileViewController: UIViewController {
     private func setupContraints() {
         
         // пришлось изменить один констрейн что бы был виде фон в зависимости от выбранной схемы
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//        NSLayoutConstraint.activate([
+////            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
 //            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+//            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+//        ])
+        
+        tableView.snp.makeConstraints { (make) -> Void in
+            
+            make.height.equalTo(self.view)
+            make.leading.equalTo(self.view)
+            make.trailing.equalTo(self.view)
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

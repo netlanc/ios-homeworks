@@ -7,7 +7,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         imageView.layer.cornerRadius = 6
         imageView.contentMode = .scaleAspectFill
@@ -27,12 +27,19 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     
     private func setupContraints() {
         
-        NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
+//        NSLayoutConstraint.activate([
+//            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+//            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+//            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+//            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+//        ])
+        
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(contentView)
+            make.leading.equalTo(contentView)
+            make.trailing.equalTo(contentView)
+            make.bottom.equalTo(contentView)
+        }
         
     }
     
