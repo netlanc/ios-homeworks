@@ -138,6 +138,12 @@ class ProfileHeaderView: UIView {
         ])
     }
     
+    func configure(with user: User) {
+        fullNameLabel.text = user.name
+        statusLabel.text = user.status
+        avatarImageView.image = user.avatar
+    }
+    
     @objc func buttonPressed() {
         //print(statusLabel.text ?? "А статус пока не задан")
         

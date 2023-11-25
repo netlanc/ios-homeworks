@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let loginViewController = LogInViewController()
         loginViewController.title = "Логин"
-        //loginViewController.view.backgroundColor = .systemBackground
+        loginViewController.view.backgroundColor = .systemBackground
         
         let feedViewController = FeedViewController()
         feedViewController.title = "Лента"
@@ -26,18 +26,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         loginViewController.tabBarItem = UITabBarItem(title: "Логин", image: UIImage(systemName: "person.crop.circle"), tag: 0)
         feedViewController.tabBarItem = UITabBarItem(title: "Лента", image: UIImage(systemName: "note"), tag: 1)
-        profileViewController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person"), tag: 2)
+        //profileViewController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person"), tag: 2)
         
         let controllers = [
             feedViewController,
             loginViewController,
-            profileViewController
+            //profileViewController
         ]
         tabBarController.viewControllers = controllers.map {
             let navController = UINavigationController(rootViewController: $0)
             return navController
         }
-        tabBarController.selectedIndex = 2
+        tabBarController.selectedIndex = 1
         
         window.rootViewController = tabBarController
         

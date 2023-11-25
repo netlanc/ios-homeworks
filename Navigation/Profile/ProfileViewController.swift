@@ -2,6 +2,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    var user: User?
+    
     var profilePhotos: [ProfilePhoto] = ProfilePhoto.make() // массив фотографий
     
     private lazy var tableView: UITableView = {
@@ -19,7 +21,7 @@ class ProfileViewController: UIViewController {
         
         // что бы увидеть что цвет фона зависит от выбранной схемы
         // пришлось изменить один констрейн в методе setupContraints
-        #if DEBUG
+        #if DEBUG // Схема - Navigation
         view.backgroundColor = .systemRed
         #else
         view.backgroundColor = .systemBlue
@@ -70,6 +72,11 @@ extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = ProfileHeaderView()
+        
+        if let user = user {
+            headerView.configure(with: user)
+        }
+
         return headerView
     }
     
