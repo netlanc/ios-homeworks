@@ -36,6 +36,13 @@ class LogInViewController: UIViewController {
         let textField = TextFieldWithPadding()
         textField.placeholder = "Username"
         
+        // Чтобы не вводить в форму
+        #if DEBUG // Схема - Navigation
+        textField.text = "TestGrut"
+        #else
+        textField.text = "Grut"
+        #endif
+        
         textField.textColor = .black
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textField.autocapitalizationType = .none
@@ -149,21 +156,30 @@ class LogInViewController: UIViewController {
     
     @objc private func handleLogInPressed() {
         
-        //        Делаем валидацию
-        //        let username = loginTextField.text
-        //        let password = passwordTextField.text
-        //
-        //        guard let username = username, !username.isEmpty,
-        //              let password = password, !password.isEmpty else {
-        //            print("Error: Заполните логин и пароль")
-        //            return
-        //        }
+        guard let login = loginTextField.text else {
+            print("Заполните логин")
+            return
+        }
         
-        let profileViewController = ProfileViewController()
-        profileViewController.title = "Профиль"
-        profileViewController.view.backgroundColor = .lightGray
+        #if DEBUG // Схема - Navigation
+        let userService: UserService = TestUserService()
+        #else
+        let userService: UserService = CurrentUserService()
+        #endif
         
-        self.navigationController?.pushViewController(profileViewController, animated: true)
+        if let user = userService.getUser(by: login) {
+            
+            let profileViewController = ProfileViewController()
+            profileViewController.title = "Профиль"
+        
+            profileViewController.user = user
+            
+            navigationController?.pushViewController(profileViewController, animated: true)
+        } else {
+            // Обработка ошибки в случае неверного логина
+            print("Ошибка входа. Пользователь не найден.")
+        }
+        
     }
     
     private func setupContraints() {
