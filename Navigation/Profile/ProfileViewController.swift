@@ -21,6 +21,8 @@ extension ProfileViewController: profileVCDelegate {
 
 class ProfileViewController: UIViewController {
     
+    var user: User?
+    
     var profilePhotos: [ProfilePhoto] = ProfilePhoto.make() // массив фотографий
     
     private lazy var tableView: UITableView = {
@@ -35,6 +37,14 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // что бы увидеть что цвет фона зависит от выбранной схемы
+        // пришлось изменить один констрейн в методе setupContraints
+        #if DEBUG // Схема - Navigation
+        view.backgroundColor = .systemRed
+        #else
+        view.backgroundColor = .systemBlue
+        #endif
         
         view.addSubview(tableView)
         
@@ -56,8 +66,11 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupContraints() {
+        
+        // пришлось изменить один констрейн что бы был виде фон в зависимости от выбранной схемы
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//            tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
@@ -78,7 +91,13 @@ extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = ProfileHeaderView()
+        
+        if let user = user {
+            headerView.configure(with: user)
+        }
+
         headerView.profileVC = self
+      
         return headerView
     }
     
