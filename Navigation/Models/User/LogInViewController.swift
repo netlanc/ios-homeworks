@@ -2,6 +2,8 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+    var loginDelegate: LoginViewControllerDelegate?
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         
@@ -34,14 +36,14 @@ class LogInViewController: UIViewController {
     
     private lazy var loginTextField: TextFieldWithPadding = {
         let textField = TextFieldWithPadding()
-        textField.placeholder = "Username"
+        textField.placeholder = "User login"
         
         // Чтобы не вводить в форму
-        #if DEBUG // Схема - Navigation
-        textField.text = "TestGrut"
-        #else
-        textField.text = "Grut"
-        #endif
+//        #if DEBUG // Схема - Navigation
+//        textField.text = "TestGrut"
+//        #else
+//        textField.text = "Grut"
+//        #endif
         
         textField.textColor = .black
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
@@ -139,6 +141,47 @@ class LogInViewController: UIViewController {
         return button
     }()
     
+    private lazy var noteLabel: UILabel = {
+        
+        
+        return noteLabel
+    }()
+    
+    private lazy var noteView: UIView = {
+        let noteView = UIView()
+        
+        
+        noteView.layer.cornerRadius = 5
+        noteView.layer.borderWidth = 0.5
+        noteView.layer.borderColor = UIColor.red.cgColor
+        
+        noteView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let noteLabel = UILabel()
+        noteLabel.font = UIFont.systemFont(ofSize: 14)
+        
+        noteLabel.text = """
+Note
+User login: user
+Password: password
+"""
+        
+        noteLabel.textColor = .systemGray
+        noteLabel.numberOfLines = 0
+        
+        noteLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        noteView.addSubview(noteLabel)
+        
+        NSLayoutConstraint.activate([
+            
+            noteLabel.topAnchor.constraint(equalTo: noteView.topAnchor, constant: 10),
+            noteLabel.bottomAnchor.constraint(equalTo: noteView.bottomAnchor, constant: -10),
+            noteLabel.leadingAnchor.constraint(equalTo: noteView.leadingAnchor, constant: 10),
+            noteLabel.trailingAnchor.constraint(equalTo: noteView.trailingAnchor, constant: -10)
+        ])
+        return noteView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,37 +192,46 @@ class LogInViewController: UIViewController {
         contentView.addSubview(logoImageView)
         contentView.addSubview(stackLoginPassword)
         contentView.addSubview(logInButton)
+        contentView.addSubview(noteView)
         
         setupContraints()
         
     }
     
     @objc private func handleLogInPressed() {
+    
         
-        guard let login = loginTextField.text else {
-            print("Заполните логин")
+        guard let login = loginTextField.text, let password = passwordTextField.text else {
+            
+            runAlert(textAlert: "Что то пошло не так!")
             return
         }
         
-        #if DEBUG // Схема - Navigation
-        let userService: UserService = TestUserService()
-        #else
-        let userService: UserService = CurrentUserService()
-        #endif
-        
-        if let user = userService.getUser(by: login) {
+        if login == "" || password == "" {
             
-            let profileViewController = ProfileViewController()
-            profileViewController.title = "Профиль"
+            runAlert(textAlert: "Логин и пароль не могут быть пустыми")
+            return
+        }
         
-            profileViewController.user = user
+        if loginDelegate?.check(login: login, password: password) == true {
+            // Логин и пароль верны, переходите на профиль
+            let profileViewController = ProfileViewController()
+            
+            profileViewController.user = loginDelegate?.getCurrentUser()
             
             navigationController?.pushViewController(profileViewController, animated: true)
         } else {
-            // Обработка ошибки в случае неверного логина
-            print("Ошибка входа. Пользователь не найден.")
+            
+            runAlert(textAlert: "Не верный логин или пароль")
         }
         
+    }
+    
+    func runAlert(textAlert: String, titleAlert: String = "Ошибка", buttonAlert: String = "Ok") {
+        
+        let alert = UIAlertController(title: titleAlert, message: textAlert, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     private func setupContraints() {
@@ -212,7 +264,12 @@ class LogInViewController: UIViewController {
             logInButton.topAnchor.constraint(equalTo: stackLoginPassword.bottomAnchor, constant: 16),
             logInButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -16),
             logInButton.heightAnchor.constraint(equalToConstant: 50),
-            logInButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 20)
+            
+            noteView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            noteView.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
+            noteView.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -16),
+            
+            noteView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 20)
             
             
         ])
