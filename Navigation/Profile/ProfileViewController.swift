@@ -20,25 +20,6 @@ extension ProfileViewController: profileVCDelegate {
     }
 }
 
-protocol profileVCDelegate: AnyObject {
-    func scrrollStop()
-    func scrrollRun()
-}
-
-extension ProfileViewController: profileVCDelegate {
-    
-    func scrrollStop() {
-        self.tableView.isScrollEnabled = false
-        self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.isUserInteractionEnabled = false
-    }
-    
-    func scrrollRun() {
-        self.tableView.isScrollEnabled = true
-        self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.isUserInteractionEnabled = true
-        
-    }
-}
-
 class ProfileViewController: UIViewController {
     
     var user: User?
@@ -60,19 +41,13 @@ class ProfileViewController: UIViewController {
         
         // что бы увидеть что цвет фона зависит от выбранной схемы
         // пришлось изменить один констрейн в методе setupContraints
-<<<<<<< HEAD
+
 //        #if DEBUG
 //        view.backgroundColor = .systemRed
 //        #else
 //        view.backgroundColor = .systemBlue
 //        #endif
-=======
-        #if DEBUG // Схема - Navigation
-        view.backgroundColor = .systemRed
-        #else
-        view.backgroundColor = .systemBlue
-        #endif
->>>>>>> feature/iosint-03
+
         
         view.addSubview(tableView)
         
