@@ -18,7 +18,7 @@ class ProfileHeaderView: UIView {
         paddedTextField.layer.borderWidth = 1
         paddedTextField.layer.borderColor = UIColor.black.cgColor
         
-        paddedTextField.translatesAutoresizingMaskIntoConstraints = false
+//        paddedTextField.translatesAutoresizingMaskIntoConstraints = false
         
         return paddedTextField
     }()
@@ -37,7 +37,7 @@ class ProfileHeaderView: UIView {
         statusButton.layer.shadowOpacity = 0.7
         statusButton.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         
-        statusButton.translatesAutoresizingMaskIntoConstraints = false
+//        statusButton.translatesAutoresizingMaskIntoConstraints = false
         
         return statusButton
     }()
@@ -50,7 +50,7 @@ class ProfileHeaderView: UIView {
         statusLabel.layer.masksToBounds = true
         statusLabel.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         
-        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+//        statusLabel.translatesAutoresizingMaskIntoConstraints = false
         
         return statusLabel
     }()
@@ -63,7 +63,7 @@ class ProfileHeaderView: UIView {
         fullNameLabel.layer.masksToBounds = true
         fullNameLabel.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
         
-        fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
+//        fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         return fullNameLabel
     }()
@@ -82,7 +82,12 @@ class ProfileHeaderView: UIView {
         avatarImageView.layer.masksToBounds = true
         avatarImageView.autoresizingMask = [.flexibleRightMargin, .flexibleBottomMargin]
         
-        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let avatarTapOpenGesture = UITapGestureRecognizer(target: self, action: #selector(avatarOpenPreview))
+        avatarImageView.addGestureRecognizer(avatarTapOpenGesture)
+        avatarImageView.isUserInteractionEnabled = true
+        
+//        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         
         let avatarTapOpenGesture = UITapGestureRecognizer(target: self, action: #selector(avatarOpenPreview))
         avatarImageView.addGestureRecognizer(avatarTapOpenGesture)
@@ -144,8 +149,12 @@ class ProfileHeaderView: UIView {
     
     @objc func avatarClosePreview() {
         
+<<<<<<< HEAD
+    
+=======
         
 print("close")
+>>>>>>> feature/iosint-03
         UIImageView.animate(withDuration: 0.3) {
             
             self.avatarCloseButton.alpha = 0
@@ -187,7 +196,10 @@ print("close")
         addSubview(statusButton)
         addSubview(paddedTextField)
         
+<<<<<<< HEAD
+=======
         
+>>>>>>> feature/iosint-03
         addSubview(avatarBgrView)
         addSubview(avatarCloseButton)
         addSubview(avatarImageView)
@@ -199,6 +211,72 @@ print("close")
         
         let safeAreaGuide = self.safeAreaLayoutGuide
         
+<<<<<<< HEAD
+//        NSLayoutConstraint.activate([
+//            
+//            avatarImageView.leadingAnchor.constraint(equalTo: safeAreaGuide.leadingAnchor, constant: 16),
+//            avatarImageView.topAnchor.constraint(equalTo: safeAreaGuide.topAnchor, constant: 16),
+//            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
+//            avatarImageView.heightAnchor.constraint(equalToConstant: 100),
+//            
+//            statusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 26),
+//            statusButton.leadingAnchor.constraint(equalTo: safeAreaGuide.leadingAnchor, constant: 16),
+//            statusButton.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: -16),
+//            statusButton.heightAnchor.constraint(equalToConstant: 50),
+//            
+//            
+//            fullNameLabel.topAnchor.constraint(equalTo: safeAreaGuide.topAnchor, constant: 27),
+//            fullNameLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 16),
+//            fullNameLabel.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: -16),
+//            
+//            statusLabel.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -64),
+//            statusLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 16),
+//            statusLabel.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: -16),
+//            
+//            paddedTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 10),
+//            paddedTextField.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 16),
+//            paddedTextField.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: -16)
+//            
+//        ])
+        
+        avatarImageView.snp.makeConstraints { make in
+            make.leading.equalTo(safeAreaGuide.snp.leading).offset(16)
+            make.top.equalTo(safeAreaGuide.snp.top).offset(16)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
+        
+        statusButton.snp.makeConstraints { make in
+            make.top.equalTo(avatarImageView.snp.bottom).offset(26)
+            make.leading.equalTo(safeAreaGuide.snp.leading).offset(16)
+            make.trailing.equalTo(safeAreaGuide.snp.trailing).offset(-16)
+            make.height.equalTo(50)
+        }
+        
+        fullNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaGuide.snp.top).offset(27)
+            make.left.equalTo(avatarImageView.snp.right).offset(16)
+            make.trailing.equalTo(safeAreaGuide.snp.trailing).offset(-16)
+        }
+        
+        statusLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(statusButton.snp.top).offset(-64)
+            make.left.equalTo(avatarImageView.snp.right).offset(16)
+            make.trailing.equalTo(safeAreaGuide.snp.trailing).offset(-16)
+        }
+        
+        paddedTextField.snp.makeConstraints { make in
+            make.top.equalTo(statusLabel.snp.bottom).offset(10)
+            make.left.equalTo(avatarImageView.snp.right).offset(16)
+            make.trailing.equalTo(safeAreaGuide.snp.trailing).offset(-16)
+        }
+        
+        avatarCloseButton.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaGuide.snp.top).offset(16)
+            make.trailing.equalTo(safeAreaGuide.snp.trailing).offset(-16)
+        }
+
+=======
         NSLayoutConstraint.activate([
             
             avatarImageView.leadingAnchor.constraint(equalTo: safeAreaGuide.leadingAnchor, constant: 16),
@@ -228,6 +306,7 @@ print("close")
             avatarCloseButton.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: -16),
             
         ])
+>>>>>>> feature/iosint-03
     }
     
     func configure(with user: User) {
