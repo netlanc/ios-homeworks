@@ -14,6 +14,7 @@
 		DE02E29B2B0A9B320096F523 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE02E2862B0A9B310096F523 /* StorageService.framework */; };
 		DE02E29C2B0A9B320096F523 /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE02E2862B0A9B310096F523 /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE02E2A62B0A9BA40096F523 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE02E2A52B0A9BA40096F523 /* Post.swift */; };
+		DE2BF2CC2B1CD4F800A26DFF /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2BF2CB2B1CD4F800A26DFF /* Checker.swift */; };
 		DE2CBAB92AD957B0004C5EF3 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2CBAB82AD957B0004C5EF3 /* ProfileHeaderView.swift */; };
 		DE2CBABC2AD967AD004C5EF3 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2CBABB2AD967AD004C5EF3 /* PostTableViewCell.swift */; };
 		DE559F932AC499F900797548 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE559F922AC499F900797548 /* AppDelegate.swift */; };
@@ -81,6 +82,7 @@
 		DE02E28F2B0A9B320096F523 /* StorageServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorageServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE02E2962B0A9B320096F523 /* StorageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceTests.swift; sourceTree = "<group>"; };
 		DE02E2A52B0A9BA40096F523 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		DE2BF2CB2B1CD4F800A26DFF /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		DE2CBAB82AD957B0004C5EF3 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		DE2CBABB2AD967AD004C5EF3 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		DE559F8F2AC499F900797548 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,7 +191,6 @@
 			isa = PBXGroup;
 			children = (
 				DE559FAA2AC4A63400797548 /* ProfileViewController.swift */,
-				DE6914E42ACED34700A58500 /* LogInViewController.swift */,
 				DE2CBAB82AD957B0004C5EF3 /* ProfileHeaderView.swift */,
 			);
 			path = Profile;
@@ -265,7 +266,9 @@
 		DEB1819B2B122C80009653F9 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				DE6914E42ACED34700A58500 /* LogInViewController.swift */,
 				DEB1819C2B122C90009653F9 /* User.swift */,
+				DE2BF2CB2B1CD4F800A26DFF /* Checker.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEA3FBA62AEEC1030003E196 /* PhotosTableViewCell.swift in Sources */,
+				DE2BF2CC2B1CD4F800A26DFF /* Checker.swift in Sources */,
 				DE559FAD2AC4A92700797548 /* PostViewController.swift in Sources */,
 				DE2CBABC2AD967AD004C5EF3 /* PostTableViewCell.swift in Sources */,
 				DE559F932AC499F900797548 /* AppDelegate.swift in Sources */,
