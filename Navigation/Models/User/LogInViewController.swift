@@ -39,11 +39,13 @@ class LogInViewController: UIViewController {
         textField.placeholder = "Username"
         
         // Чтобы не вводить в форму
-        #if DEBUG // Схема - Navigation
-        textField.text = "TestGrut"
-        #else
+//        #if DEBUG // Схема - Navigation
+//        textField.text = "TestGrut"
+//        #else
+//        textField.text = "user"
+//        #endif
+        
         textField.text = "user"
-        #endif
         
         textField.textColor = .black
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
