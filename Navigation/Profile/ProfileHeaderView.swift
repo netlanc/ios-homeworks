@@ -144,8 +144,6 @@ class ProfileHeaderView: UIView {
     
     @objc func avatarClosePreview() {
         
-        
-print("close")
         UIImageView.animate(withDuration: 0.3) {
             
             self.avatarCloseButton.alpha = 0

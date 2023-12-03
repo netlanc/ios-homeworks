@@ -189,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				DE559FAA2AC4A63400797548 /* ProfileViewController.swift */,
-				DE6914E42ACED34700A58500 /* LogInViewController.swift */,
 				DE2CBAB82AD957B0004C5EF3 /* ProfileHeaderView.swift */,
 			);
 			path = Profile;
@@ -266,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				DEB1819C2B122C90009653F9 /* User.swift */,
+				DE6914E42ACED34700A58500 /* LogInViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
