@@ -89,8 +89,6 @@ extension GalleryViewController: UICollectionViewDataSource {
         let image = galleryImages[indexPath.row]
         cell.setup(with: image)
         
-        print("image ", indexPath.row, image)
-        
         return cell
     }
 }
