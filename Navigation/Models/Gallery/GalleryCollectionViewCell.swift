@@ -1,6 +1,6 @@
 import UIKit
 
-final class GalleryCollectionViewCell: UICollectionViewCell {
+class GalleryCollectionViewCell: UICollectionViewCell {
     
     static var identifier: String {
         return "GalleryCollectionViewCell"

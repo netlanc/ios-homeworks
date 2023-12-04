@@ -1,6 +1,9 @@
 import UIKit
+import iOSIntPackage
 
-final class GalleryViewController: UIViewController {
+class GalleryViewController: UIViewController {
+    
+    var imageFacade = ImagePublisherFacade()
     
     var galleryPhotos: [ProfilePhoto] = []
 
@@ -126,4 +129,9 @@ _ collectionView: UICollectionView,willDisplay cell: UICollectionViewCell,forIte
     
 }
 
-
+extension GalleryViewController: ImageLibrarySubscriber {
+    func receive(images: [UIImage]) {
+//        galleryPhotos = images
+//        collectionView.reloadData()
+    }
+}
