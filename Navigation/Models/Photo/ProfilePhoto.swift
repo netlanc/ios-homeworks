@@ -7,6 +7,21 @@ struct ProfilePhoto {
 
 extension ProfilePhoto {
     
+    static func makeImages() -> [UIImage] {
+        
+        let photos = self.make()
+        
+        var photosImages: [UIImage] = []
+        
+        for photo in photos {
+            if let image = UIImage(named: photo.image) {
+                photosImages.append(image)
+            }
+        }
+        
+        return photosImages
+    }
+    
     static func make() -> [ProfilePhoto] {
         [
             ProfilePhoto(

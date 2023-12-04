@@ -32,7 +32,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with photo: ProfilePhoto) {
-        imageView.image = UIImage(named: photo.image)
+    func setup(with image: UIImage) {
+        imageView.image = image
     }
 }

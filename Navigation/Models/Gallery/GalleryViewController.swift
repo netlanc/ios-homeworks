@@ -4,6 +4,7 @@ import iOSIntPackage
 class GalleryViewController: UIViewController {
     
     var imageFacade = ImagePublisherFacade()
+    var galleryImages = ProfilePhoto.makeImages()
     
     var galleryPhotos: [ProfilePhoto] = []
 
@@ -36,6 +37,9 @@ class GalleryViewController: UIViewController {
 
         view.addSubview(collectionView)
         setupConstraints()
+        
+        imageFacade.subscribe(self)
+        imageFacade.addImagesWithTimer(time: 0.5, repeat: 20, userImages: galleryImages)
     }
 
     func setupConstraints() {
@@ -64,6 +68,10 @@ class GalleryViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        imageFacade.removeSubscription(for: self)
+    }
+    
     private enum LayoutConstant {
         static let spacing: CGFloat = 8.0
     }
@@ -72,14 +80,16 @@ class GalleryViewController: UIViewController {
 extension GalleryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,numberOfItemsInSection section: Int) -> Int {
-        galleryPhotos.count
+        galleryImages.count
     }
 
     func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.identifier,for: indexPath) as! GalleryCollectionViewCell
         
-        let photo = galleryPhotos[indexPath.row]
-        cell.setup(with: photo)
+        let image = galleryImages[indexPath.row]
+        cell.setup(with: image)
+        
+        print("image ", indexPath.row, image)
         
         return cell
     }
@@ -131,7 +141,7 @@ _ collectionView: UICollectionView,willDisplay cell: UICollectionViewCell,forIte
 
 extension GalleryViewController: ImageLibrarySubscriber {
     func receive(images: [UIImage]) {
-//        galleryPhotos = images
-//        collectionView.reloadData()
+        galleryImages = images
+        collectionView.reloadData()
     }
 }
