@@ -4,9 +4,9 @@ import iOSIntPackage
 class GalleryViewController: UIViewController {
     
     var imageFacade = ImagePublisherFacade()
-    var galleryImages = ProfilePhoto.makeImages()
+    var galleryImages: [UIImage] = []
     
-    var galleryPhotos: [ProfilePhoto] = []
+    var galleryPhotos = ProfilePhoto.makeImages()
 
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -39,7 +39,7 @@ class GalleryViewController: UIViewController {
         setupConstraints()
         
         imageFacade.subscribe(self)
-        imageFacade.addImagesWithTimer(time: 0.5, repeat: 20, userImages: galleryImages)
+        imageFacade.addImagesWithTimer(time: 0.5, repeat: 20, userImages: galleryPhotos)
     }
 
     func setupConstraints() {
