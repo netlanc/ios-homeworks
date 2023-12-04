@@ -35,13 +35,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let controllers = [
             feedViewController,
             loginViewController,
-            profileViewController
+//            profileViewController
         ]
         tabBarController.viewControllers = controllers.map {
             let navController = UINavigationController(rootViewController: $0)
             return navController
         }
-        tabBarController.selectedIndex = 2
+        tabBarController.selectedIndex = 1
         
         window.rootViewController = tabBarController
         
