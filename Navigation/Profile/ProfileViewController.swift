@@ -109,7 +109,7 @@ extension ProfileViewController: UITableViewDelegate {
         if indexPath.row == 0 {
             
             let galleryVC = GalleryViewController()
-            galleryVC.galleryPhotos = profilePhotos
+            //galleryVC.galleryPhotos = profilePhotos
             
             let backBtn = UIBarButtonItem()
             backBtn.title = "Назад"
