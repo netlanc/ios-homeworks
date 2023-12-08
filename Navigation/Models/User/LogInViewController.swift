@@ -231,12 +231,12 @@ Password: password
         
     }
     
-    func runAlert(textAlert: String = "Неизвестная ошибка", titleAlert: String = "Ошибка", buttonAlert: String = "Ok") {
-        let alert = UIAlertController(title: titleAlert, message: textAlert, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-        
-    }
+//    func runAlert(textAlert: String = "Неизвестная ошибка", titleAlert: String = "Ошибка", buttonAlert: String = "Ok") {
+//        let alert = UIAlertController(title: titleAlert, message: textAlert, preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: buttonAlert, style: .default, handler: nil))
+//        present(alert, animated: true, completion: nil)
+//        
+//    }
     
     
     private func setupContraints() {
