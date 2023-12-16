@@ -26,6 +26,7 @@
 		DE559FAB2AC4A63400797548 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE559FAA2AC4A63400797548 /* ProfileViewController.swift */; };
 		DE559FAD2AC4A92700797548 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE559FAC2AC4A92700797548 /* PostViewController.swift */; };
 		DE6914E52ACED34700A58500 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6914E42ACED34700A58500 /* LogInViewController.swift */; };
+		DE7D8CFD2B28E52200FC17BF /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7D8CFC2B28E52200FC17BF /* ProfileViewModel.swift */; };
 		DE7E1B342B22F66E005B7E66 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7E1B332B22F66E005B7E66 /* FeedModel.swift */; };
 		DE7E1B362B22FA05005B7E66 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7E1B352B22FA05005B7E66 /* AlertModel.swift */; };
 		DE7F04BE2B21F423003CB83E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7F04BD2B21F423003CB83E /* CustomButton.swift */; };
@@ -99,6 +100,7 @@
 		DE559FAA2AC4A63400797548 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DE559FAC2AC4A92700797548 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		DE6914E42ACED34700A58500 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		DE7D8CFC2B28E52200FC17BF /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		DE7E1B332B22F66E005B7E66 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		DE7E1B352B22FA05005B7E66 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		DE7F04BD2B21F423003CB83E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				DE559FAA2AC4A63400797548 /* ProfileViewController.swift */,
 				DE2CBAB82AD957B0004C5EF3 /* ProfileHeaderView.swift */,
+				DE7D8CFC2B28E52200FC17BF /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				DE559FAD2AC4A92700797548 /* PostViewController.swift in Sources */,
 				DE2CBABC2AD967AD004C5EF3 /* PostTableViewCell.swift in Sources */,
 				DE7E1B342B22F66E005B7E66 /* FeedModel.swift in Sources */,
+				DE7D8CFD2B28E52200FC17BF /* ProfileViewModel.swift in Sources */,
 				DE7F04BE2B21F423003CB83E /* CustomButton.swift in Sources */,
 				DE559F932AC499F900797548 /* AppDelegate.swift in Sources */,
 				DEA3FBAC2AEEE7D30003E196 /* GalleryViewController.swift in Sources */,

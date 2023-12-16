@@ -21,6 +21,10 @@ extension ProfileViewController: profileVCDelegate {
 
 class ProfileViewController: UIViewController {
     
+    private var viewModel: ProfileViewModel
+    
+    var headerProfile = ProfileHeaderView()
+    
     var user: User?
     
     var profilePhotos: [ProfilePhoto] = ProfilePhoto.make() // массив фотографий
@@ -34,6 +38,17 @@ class ProfileViewController: UIViewController {
         
         return tableView
     }()
+    
+    
+    // MARK: - Init
+    init(viewModel: ProfileViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +66,35 @@ class ProfileViewController: UIViewController {
         tuneTableView()
         setupContraints()
         
+        bindViewModel()
+        
     }
     
+    private func bindViewModel() {
+        viewModel.currentState = { [weak self] state in
+            guard let self else { return }
+            switch state {
+                case .initial:
+                    print("initial")
+                case .loading:
+                
+                    headerProfile.activityIndicator.isHidden = false
+                
+                case .loaded(let user):
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self else { return }
+                        self.user = user
+                        headerProfile.activityIndicator.isHidden = true
+                        tableView.reloadData()
+                        
+                        print("loaded loaded")
+                        
+                    }
+                case .error:
+                    print("error")
+            }
+        }
+    }
     private func tuneTableView() {
         
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "photoCell")
@@ -74,6 +116,7 @@ class ProfileViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            
         ])
     }
     
@@ -90,15 +133,14 @@ extension ProfileViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = ProfileHeaderView()
         
         if let user = user {
-            headerView.configure(with: user)
+            headerProfile.configure(with: user)
         }
 
-        headerView.profileVC = self
+        headerProfile.profileVC = self
       
-        return headerView
+        return headerProfile
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -219,9 +219,12 @@ Password: password
         
         if loginDelegate?.check(login: login, password: password) == true {
             // Логин и пароль верны, переходите на профиль
-            let profileViewController = ProfileViewController()
             
-            profileViewController.user = loginDelegate?.getCurrentUser()
+            let viewProfileModel = ProfileViewModel()
+            viewProfileModel.changeStateIfNeeded()
+            let profileViewController = ProfileViewController(viewModel: viewProfileModel)
+            
+//            profileViewController.user = CurrentUserService().currentUser
             
             navigationController?.pushViewController(profileViewController, animated: true)
         } else {

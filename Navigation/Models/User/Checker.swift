@@ -1,48 +1,45 @@
 import UIKit
 
-final class Checker {
+final class Checker: UserServiceDelegate {
     static let shared = Checker()
-    private init() {}
     
-    var currenUser: User?
-    
-//    private let validateLogin = "user"
-//    private let validatePassword = "password"
-    
+
+    var userService: UserService = CurrentUserService.shared
+
+    private init() {
+        userService.delegate = self
+    }
+
+    func userDidLogin(_ user: User) {
+        // Обработка успешного входа пользователя, если нужно
+    }
+
+    func userDidLogout() {
+        // Обработка выхода пользователя, если нужно
+    }
+
     func check(login: String, password: String) -> Bool {
-        
-//        #if DEBUG // Схема - Navigation
-//        let userService: UserService = TestUserService()
-//        #else
-        let userService: UserService = CurrentUserService()
-//        #endif
-        
-        print("login:", login)
-        print("password:", password)
-        
-        if let user = userService.getUser(by: login) {
-            if password == user.password {
-                self.currenUser = user
-                return true
-            }
-        }
-        
-        return false
+        return userService.loginUser(login: login, password: password)
     }
 }
 
 protocol LoginViewControllerDelegate {
     func check(login: String, password: String) -> Bool
-    func getCurrentUser() -> User?
+//    func getCurrentUser() -> User?
 }
 
 struct LoginInspector: LoginViewControllerDelegate {
-    func check(login: String, password: String) -> Bool {
-        return Checker.shared.check(login: login, password: password)
-    }
-    func getCurrentUser() -> User? {
-        return Checker.shared.currenUser
-    }
+    init() {
+        Checker.shared.userService = CurrentUserService.shared
+     }
+
+     func check(login: String, password: String) -> Bool {
+         return Checker.shared.check(login: login, password: password)
+     }
+
+//     func getCurrentUser() -> User? {
+//         return Checker.shared.userService?.currentUser
+//     }
 }
 
 protocol LoginFactory {

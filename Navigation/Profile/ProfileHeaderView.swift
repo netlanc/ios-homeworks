@@ -7,6 +7,13 @@ class ProfileHeaderView: UIView {
     
     private var statusText: String = ""
     
+    let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        return indicator
+    }()
+    
     private lazy var paddedTextField: TextFieldWithPadding = {
         let paddedTextField = TextFieldWithPadding(frame: CGRect(x: 20, y: 20, width: 200, height: 40))
         paddedTextField.placeholder = "Заполните текст…"
@@ -44,7 +51,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var statusLabel: UILabel = {
         let statusLabel = UILabel()
-        statusLabel.text = "Я есть Грут...Я есть Грут...Я есть Грут...Я есть..."
+        statusLabel.text = "Loading..."
         statusLabel.font = UIFont.systemFont(ofSize: 14)
         statusLabel.textColor = .gray
         statusLabel.layer.masksToBounds = true
@@ -57,7 +64,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var fullNameLabel: UILabel = {
         let fullNameLabel = UILabel()
-        fullNameLabel.text = "Я есть Грут"
+        fullNameLabel.text = "Loading..."
         fullNameLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
         fullNameLabel.textColor = .black
         fullNameLabel.layer.masksToBounds = true
@@ -73,8 +80,8 @@ class ProfileHeaderView: UIView {
     
     private lazy var avatarImageView: UIImageView = {
         let avatarImageView = UIImageView()
-        let image = UIImage(named: "Grut")
-        avatarImageView.image = image
+//        let image = UIImage(named: "Grut")
+//        avatarImageView.image = image
         
         avatarImageView.layer.cornerRadius = 50
         avatarImageView.layer.borderWidth = 3
@@ -144,8 +151,6 @@ class ProfileHeaderView: UIView {
     
     @objc func avatarClosePreview() {
         
-        
-print("close")
         UIImageView.animate(withDuration: 0.3) {
             
             self.avatarCloseButton.alpha = 0
@@ -192,6 +197,8 @@ print("close")
         addSubview(avatarCloseButton)
         addSubview(avatarImageView)
         
+        addSubview(activityIndicator)
+        
         setupContraints()
     }
     
@@ -227,7 +234,13 @@ print("close")
             avatarCloseButton.topAnchor.constraint(equalTo: safeAreaGuide.topAnchor, constant: 16),
             avatarCloseButton.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: -16),
             
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: avatarImageView.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor),
+            
         ])
+        
+        activityIndicator.startAnimating()
     }
     
     func configure(with user: User) {
