@@ -45,7 +45,7 @@ class LogInViewController: UIViewController {
 //        textField.text = "user"
 //        #endif
         
-        textField.text = "user"
+        textField.text = "Grut"
         
         textField.textColor = .black
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
@@ -65,7 +65,7 @@ class LogInViewController: UIViewController {
         let textField = TextFieldWithPadding()
         textField.placeholder = "Password"
         
-        textField.text = "password"
+        textField.text = "password1"
         
         textField.textColor = .black
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
@@ -166,6 +166,7 @@ class LogInViewController: UIViewController {
         
         noteLabel.text = """
 Note
+Еще пользователь
 User login: user
 Password: password
 """
