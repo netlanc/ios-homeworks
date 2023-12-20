@@ -2,6 +2,8 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+    var profileModel: ProfileViewModel
+    
     var loginDelegate: LoginViewControllerDelegate?
     
     private lazy var scrollView: UIScrollView = {
@@ -188,6 +190,16 @@ Password: password
         return noteView
     }()
     
+    // MARK: - Init
+    init(profileModel: ProfileViewModel) {
+        self.profileModel = profileModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -221,13 +233,14 @@ Password: password
         if loginDelegate?.check(login: login, password: password) == true {
             // Логин и пароль верны, переходите на профиль
             
-            let viewProfileModel = ProfileViewModel()
-            viewProfileModel.changeStateIfNeeded()
-            let profileViewController = ProfileViewController(viewModel: viewProfileModel)
+            //let viewProfileModel = ProfileViewModel()
+            profileModel.changeStateIfNeeded()
+            profileModel.showProfile?()
+            //let profileViewController = ProfileViewController(viewModel: viewProfileModel)
             
 //            profileViewController.user = CurrentUserService().currentUser
             
-            navigationController?.pushViewController(profileViewController, animated: true)
+            //navigationController?.pushViewController(profileViewController, animated: true)
         } else {
             
             runAlert(textAlert: "Не верный логин или пароль")

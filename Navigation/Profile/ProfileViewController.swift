@@ -55,11 +55,11 @@ class ProfileViewController: UIViewController {
         
         // что бы увидеть что цвет фона зависит от выбранной схемы
         // пришлось изменить один констрейн в методе setupContraints
-        #if DEBUG // Схема - Navigation
+#if DEBUG // Схема - Navigation
         view.backgroundColor = .systemRed
-        #else
+#else
         view.backgroundColor = .systemBlue
-        #endif
+#endif
         
         view.addSubview(tableView)
         
@@ -74,24 +74,24 @@ class ProfileViewController: UIViewController {
         viewModel.currentState = { [weak self] state in
             guard let self else { return }
             switch state {
-                case .initial:
-                    print("initial")
-                case .loading:
+            case .initial:
+                print("initial")
+            case .loading:
                 
-                    headerProfile.activityIndicator.isHidden = false
+                headerProfile.activityIndicator.isHidden = false
                 
-                case .loaded(let user):
-                    DispatchQueue.main.async { [weak self] in
-                        guard let self else { return }
-                        self.user = user
-                        headerProfile.activityIndicator.isHidden = true
-                        tableView.reloadData()
-                        
-                        print("loaded loaded")
-                        
-                    }
-                case .error:
-                    print("error")
+            case .loaded(let user):
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    self.user = user
+                    headerProfile.activityIndicator.isHidden = true
+                    tableView.reloadData()
+                    
+                    print("loaded loaded")
+                    
+                }
+            case .error:
+                print("error")
             }
         }
     }
@@ -112,7 +112,7 @@ class ProfileViewController: UIViewController {
         // пришлось изменить один констрейн что бы был виде фон в зависимости от выбранной схемы
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            //            tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
@@ -137,9 +137,9 @@ extension ProfileViewController: UITableViewDelegate {
         if let user = user {
             headerProfile.configure(with: user)
         }
-
+        
         headerProfile.profileVC = self
-      
+        
         return headerProfile
     }
     
@@ -149,15 +149,16 @@ extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
+            viewModel.showGallery?()
             
-            let galleryVC = GalleryViewController()
-            //galleryVC.galleryPhotos = profilePhotos
-            
-            let backBtn = UIBarButtonItem()
-            backBtn.title = "Назад"
-            navigationController?.navigationItem.backBarButtonItem = backBtn
-            
-            navigationController?.pushViewController(galleryVC, animated: true)
+            //            let galleryVC = GalleryViewController()
+            //            //galleryVC.galleryPhotos = profilePhotos
+            //            
+            //            let backBtn = UIBarButtonItem()
+            //            backBtn.title = "Назад"
+            //            navigationController?.navigationItem.backBarButtonItem = backBtn
+            //            
+            //            navigationController?.pushViewController(galleryVC, animated: true)
         }
     }
 }

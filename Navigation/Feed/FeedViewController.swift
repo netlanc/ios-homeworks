@@ -74,12 +74,12 @@ class FeedViewController: UIViewController {
     }()
     
     private lazy var postButton2: CustomButton = {
-        let postButton1 = CustomButton("Читать пост", .white, .systemRed, tapButton: { [weak self] in
+        let postButton2 = CustomButton("Читать пост", .white, .systemRed, tapButton: { [weak self] in
                 self?.showPostButtonTapped()
             }
         )
         
-        return postButton1
+        return postButton2
     }()
     
         
@@ -128,13 +128,13 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Лента"
-        self.view.backgroundColor = .systemOrange
+        title = "Лента"
+        view.backgroundColor = .systemOrange
 
-        self.view.addSubview(textField)
-        self.view.addSubview(checkGuessButton)
-        self.view.addSubview(checkLabel)
-        self.view.addSubview(stackView)
+        view.addSubview(textField)
+        view.addSubview(checkGuessButton)
+        view.addSubview(checkLabel)
+        view.addSubview(stackView)
         
         setupContraints()
 //        configureShowPostButton()
@@ -142,11 +142,11 @@ class FeedViewController: UIViewController {
     
     private func setupContraints() {
         
-        let safeAreaGuide = self.view.safeAreaLayoutGuide
+        let safeAreaGuide = view.safeAreaLayoutGuide
         
     
-        let safeAreaGuideView1 = self.viewButton1.safeAreaLayoutGuide
-        let safeAreaGuideView2 = self.viewButton2.safeAreaLayoutGuide
+        let safeAreaGuideView1 = viewButton1.safeAreaLayoutGuide
+        let safeAreaGuideView2 = viewButton2.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
             
@@ -188,8 +188,8 @@ class FeedViewController: UIViewController {
     
     @objc private func showPostButtonTapped() {
         let postViewController = PostViewController()
-//        postViewController.post = post
-        self.navigationController?.pushViewController(postViewController, animated: true)
+        postViewController.post = posts[0]
+        navigationController?.pushViewController(postViewController, animated: true)
     }
 
 }

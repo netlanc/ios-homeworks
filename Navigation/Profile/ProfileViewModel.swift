@@ -4,6 +4,8 @@ protocol ProfileVMProtocol {
     var state: State { get set }
     var currentState: ((State) -> Void)? { get set }
     func changeStateIfNeeded()
+    var showProfile: Action? { get set }
+    var showGallery: Action? { get set }
 }
 
 enum State {
@@ -14,6 +16,9 @@ enum State {
 }
 
 final class ProfileViewModel: ProfileVMProtocol {
+    
+    var showProfile: Action?
+    var showGallery: Action?
     
     private let userService: UserService?
     var currentState: ((State) -> Void)?

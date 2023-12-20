@@ -1,24 +1,51 @@
 import UIKit
 
-class ProfileCoordinator: Coordinator {
-    var navigationController: UINavigationController!
-    var tabBarController: UITabBarController
+class ProfileCoordinator: ProfileBaseCoordinator {
 
-    init(tabBarController: UITabBarController) {
-        self.tabBarController = tabBarController
-        self.navigationController = UINavigationController()
+    
+    var parentCoordinator: MainBaseCoordinator?
+    lazy var rootViewController: UIViewController = UIViewController()
+    lazy var profileModel: ProfileViewModel = ProfileViewModel()
+    
+    func start() -> UIViewController {
+    
+        profileModel.showProfile = { [weak self] in
+            self?.showProfileScreen()
+        }
+        profileModel.showGallery = { [weak self] in
+            self?.showGalleryScreen()
+        }
+        
+        let loginViewController = LogInViewController(profileModel: profileModel)
+        loginViewController.view.backgroundColor = .systemBackground
+        
+        let loginInspector = MyLoginFactory().makeLoginInspector()
+        loginViewController.loginDelegate = loginInspector
+        rootViewController = UINavigationController(
+            rootViewController: loginViewController
+        )
+        
+        return rootViewController
     }
+    
+    func showProfileScreen() {
+        let profileViewController = ProfileViewController(
+            viewModel: profileModel
+        )
 
-    func start() {
+        navigationRootViewController?.pushViewController(profileViewController, animated: true)
+    }
+    
+    func showGalleryScreen() {
         
-        let viewProfileModel = ProfileViewModel()
-        viewProfileModel.changeStateIfNeeded()
+        let galleryVC = GalleryViewController()
+        //galleryVC.galleryPhotos = profilePhotos
         
-        let profileViewController = ProfileViewController(viewModel: viewProfileModel)
-        profileViewController.title = "Профиль"
-        profileViewController.view.backgroundColor = .lightGray
-        profileViewController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(systemName: "person"), tag: 0)
-
-        navigationController.pushViewController(profileViewController, animated: false)
+        let backBtn = UIBarButtonItem()
+        backBtn.title = "Назад"
+        navigationRootViewController?.navigationItem.backBarButtonItem = backBtn
+        
+        navigationRootViewController?.pushViewController(galleryVC, animated: true)
     }
 }
+
