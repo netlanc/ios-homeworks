@@ -3,8 +3,10 @@ import iOSIntPackage
 
 class GalleryViewController: UIViewController {
     
-    var imageFacade = ImagePublisherFacade()
-    var galleryImages: [UIImage] = []
+    var imageProcessor = ImageProcessor()
+    
+//    var imageFacade = ImagePublisherFacade()
+//    var galleryImages: [UIImage] = []
     
     var galleryPhotos = ProfilePhoto.makeImages()
 
@@ -38,8 +40,24 @@ class GalleryViewController: UIViewController {
         view.addSubview(collectionView)
         setupConstraints()
         
-        imageFacade.subscribe(self)
-        imageFacade.addImagesWithTimer(time: 0.5, repeat: 20, userImages: galleryPhotos)
+//        imageFacade.subscribe(self)
+//        imageFacade.addImagesWithTimer(time: 0.5, repeat: 20, userImages: galleryPhotos)
+        
+        let dateBegin = Date()
+        
+        let colorFilter: ColorFilter = .noir
+        let qualityOfService: QualityOfService = .userInitiated
+        
+        imageProcessor.processImagesOnThread(sourceImages: galleryPhotos, filter: colorFilter, qos: qualityOfService) { [weak self] photos in
+            
+                self?.galleryPhotos = photos.compactMap{ $0 }.map{ UIImage(cgImage: $0)}
+                DispatchQueue.main.async {
+                    self?.collectionView.reloadData()
+                }
+                
+                let dateEnd = Date().timeIntervalSince(dateBegin)
+            print("Время обработки \(photos.count) фото с фильтром \"\(colorFilter)\" и QOS \"\(qualityOfService.rawValue)\" - \(dateEnd) секунд")
+            }
     }
 
     func setupConstraints() {
@@ -68,9 +86,9 @@ class GalleryViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        imageFacade.removeSubscription(for: self)
-    }
+//    override func viewDidDisappear(_ animated: Bool) {
+//        imageFacade.removeSubscription(for: self)
+//    }
     
     private enum LayoutConstant {
         static let spacing: CGFloat = 8.0
@@ -80,14 +98,19 @@ class GalleryViewController: UIViewController {
 extension GalleryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,numberOfItemsInSection section: Int) -> Int {
-        galleryImages.count
+//        galleryImages.count
+        galleryPhotos.count
+
     }
 
     func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.identifier,for: indexPath) as! GalleryCollectionViewCell
         
-        let image = galleryImages[indexPath.row]
-        cell.setup(with: image)
+//        let image = galleryImages[indexPath.row]
+//        cell.setup(with: image)
+        
+        let photo = galleryPhotos[indexPath.row]
+        cell.setup(with: photo)
         
         return cell
     }
@@ -137,9 +160,9 @@ _ collectionView: UICollectionView,willDisplay cell: UICollectionViewCell,forIte
     
 }
 
-extension GalleryViewController: ImageLibrarySubscriber {
-    func receive(images: [UIImage]) {
-        galleryImages = images
-        collectionView.reloadData()
-    }
-}
+//extension GalleryViewController: ImageLibrarySubscriber {
+//    func receive(images: [UIImage]) {
+//        galleryImages = images
+//        collectionView.reloadData()
+//    }
+//}
