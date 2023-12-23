@@ -193,7 +193,6 @@
 		DE559F912AC499F900797548 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				DEB057882B33597C00EE2C7C /* ProfileFlow */,
 				DEB057832B33549300EE2C7C /* Coordinators */,
 				DE9C1A7C2AFBE838005233EA /* App */,
 				DE7F04BC2B21F406003CB83E /* Tools */,
@@ -304,13 +303,6 @@
 				DE23C72F2B2F7E16009CC723 /* ProfileCoordinator.swift */,
 			);
 			path = Coordinators;
-			sourceTree = "<group>";
-		};
-		DEB057882B33597C00EE2C7C /* ProfileFlow */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ProfileFlow;
 			sourceTree = "<group>";
 		};
 		DEB1819B2B122C80009653F9 /* User */ = {

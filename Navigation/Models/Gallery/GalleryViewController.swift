@@ -40,13 +40,18 @@ class GalleryViewController: UIViewController {
         view.addSubview(collectionView)
         setupConstraints()
         
+        runProcessImagesOnThread()
+        
 //        imageFacade.subscribe(self)
 //        imageFacade.addImagesWithTimer(time: 0.5, repeat: 20, userImages: galleryPhotos)
+    }
+
+    func runProcessImagesOnThread() {
         
         let dateBegin = Date()
         
         let colorFilter: ColorFilter = .noir
-        let qualityOfService: QualityOfService = .userInitiated
+        let qualityOfService: QualityOfService = .default
         
         imageProcessor.processImagesOnThread(sourceImages: galleryPhotos, filter: colorFilter, qos: qualityOfService) { [weak self] photos in
             
