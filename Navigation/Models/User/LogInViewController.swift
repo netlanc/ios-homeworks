@@ -155,7 +155,9 @@ class LogInViewController: UIViewController {
         button.backgroundColor = .systemGreen
         
         button.setTitle("Подобрать пароль", for: .normal)
+        button.setTitle("Подбираем пароль", for: .disabled)
         button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.systemGray6, for: .disabled)
         
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
@@ -221,6 +223,22 @@ Password: password
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { _ in
+            self.showBanner()
+        })
+    }
+    
+    func showBanner() {
+        let bannerViewController = BannerViewController()
+
+        bannerViewController.modalTransitionStyle = .coverVertical // flipHorizontal
+        bannerViewController.modalPresentationStyle = .pageSheet // pageSheet / overFullScreen
+        
+        present(bannerViewController, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -235,7 +253,6 @@ Password: password
         contentView.addSubview(activityIndicator)
         
         setupContraints()
-        
     }
     
     @objc private func handleLogInPressed() {
@@ -279,6 +296,10 @@ Password: password
 //    }
     
     @objc func runBruteForce() {
+        
+        self.bruteForceButton.backgroundColor = .systemGray3
+        self.bruteForceButton.isEnabled = false
+        
         self.activityIndicator.isHidden = false
         self.activityIndicator.startAnimating()
         
@@ -301,6 +322,8 @@ Password: password
                 self.passwordTextField.isSecureTextEntry = false
                 self.activityIndicator.isHidden = true
                 self.activityIndicator.stopAnimating()
+                self.bruteForceButton.isEnabled = true
+                self.bruteForceButton.backgroundColor = .systemGreen
             }
         }
     }
