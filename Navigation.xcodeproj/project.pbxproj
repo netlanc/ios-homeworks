@@ -43,6 +43,7 @@
 		DEB1819D2B122C90009653F9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB1819C2B122C90009653F9 /* User.swift */; };
 		DEBA1CAB2ACF47BB0027C8B5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBA1CAA2ACF47BB0027C8B5 /* Extension.swift */; };
 		DED440162AC6120D008B3F9A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED440152AC6120D008B3F9A /* InfoViewController.swift */; };
+		DEE4FFF02B3D7A470069AE4B /* BruteForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE4FFEF2B3D7A470069AE4B /* BruteForce.swift */; };
 		DEFD80F52AE978E9000D5E4A /* ProfilePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD80F42AE978E9000D5E4A /* ProfilePhoto.swift */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +122,7 @@
 		DEB1819C2B122C90009653F9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DEBA1CAA2ACF47BB0027C8B5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DED440152AC6120D008B3F9A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		DEE4FFEF2B3D7A470069AE4B /* BruteForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForce.swift; sourceTree = "<group>"; };
 		DEFD80F42AE978E9000D5E4A /* ProfilePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhoto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -311,6 +313,7 @@
 				DE6914E42ACED34700A58500 /* LogInViewController.swift */,
 				DEB1819C2B122C90009653F9 /* User.swift */,
 				DE2BF2CB2B1CD4F800A26DFF /* Checker.swift */,
+				DEE4FFEF2B3D7A470069AE4B /* BruteForce.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				DE7D8CFD2B28E52200FC17BF /* ProfileViewModel.swift in Sources */,
 				DE7F04BE2B21F423003CB83E /* CustomButton.swift in Sources */,
 				DE23C7302B2F7E16009CC723 /* ProfileCoordinator.swift in Sources */,
+				DEE4FFF02B3D7A470069AE4B /* BruteForce.swift in Sources */,
 				DE559F932AC499F900797548 /* AppDelegate.swift in Sources */,
 				DEA3FBAC2AEEE7D30003E196 /* GalleryViewController.swift in Sources */,
 				DEB057852B33556300EE2C7C /* BaseCoordinator.swift in Sources */,

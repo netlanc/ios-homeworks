@@ -61,7 +61,7 @@ class GalleryViewController: UIViewController {
                 }
                 
                 let dateEnd = Date().timeIntervalSince(dateBegin)
-            print("Время обработки \(photos.count) фото с фильтром \"\(colorFilter)\" и QOS \"\(qualityOfService.rawValue)\" - \(dateEnd) секунд")
+                print("Время обработки \(photos.count) фото с фильтром \"\(colorFilter)\" и QOS \"\(qualityOfService.rawValue)\" - \(dateEnd) секунд")
             }
     }
 

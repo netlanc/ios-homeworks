@@ -6,6 +6,8 @@ class LogInViewController: UIViewController {
     
     var loginDelegate: LoginViewControllerDelegate?
     
+    var brutForce = BruteForce()
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         
@@ -147,10 +149,29 @@ class LogInViewController: UIViewController {
         return button
     }()
     
-    private lazy var noteLabel: UILabel = {
+    private lazy var bruteForceButton: UIButton = {
+        let button = UIButton()
         
+        button.backgroundColor = .systemGreen
         
-        return noteLabel
+        button.setTitle("Подобрать пароль", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
+        button.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.addTarget(self, action: #selector(runBruteForce), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        return indicator
     }()
     
     private lazy var noteView: UIView = {
@@ -210,6 +231,8 @@ Password: password
         contentView.addSubview(stackLoginPassword)
         contentView.addSubview(logInButton)
         contentView.addSubview(noteView)
+        contentView.addSubview(bruteForceButton)
+        contentView.addSubview(activityIndicator)
         
         setupContraints()
         
@@ -255,6 +278,33 @@ Password: password
 //        
 //    }
     
+    @objc func runBruteForce() {
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
+        
+        //self.passwordTextField.isSecureTextEntry = false
+
+        print("Генерируем и подбираем пароль")
+        
+        let dispatchQueueGlobal = DispatchQueue.global(qos: .background)
+        dispatchQueueGlobal.async {
+            let passwordGenerate = self.brutForce.generatePassword()
+            
+            print("Сгенерироали пароль: ", passwordGenerate)
+            let passwordBruteForce = self.brutForce.bruteForce(passwordToUnlock: passwordGenerate)
+            
+            print("Подобрали пароль: ", passwordBruteForce)
+            
+            let dispatchQueueMain = DispatchQueue.main
+            dispatchQueueMain.async {
+                self.passwordTextField.text = passwordBruteForce
+                self.passwordTextField.isSecureTextEntry = false
+                self.activityIndicator.isHidden = true
+                self.activityIndicator.stopAnimating()
+            }
+        }
+    }
+    
     
     private func setupContraints() {
         
@@ -286,14 +336,21 @@ Password: password
             logInButton.topAnchor.constraint(equalTo: stackLoginPassword.bottomAnchor, constant: 16),
             logInButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -16),
             logInButton.heightAnchor.constraint(equalToConstant: 50),
-            //logInButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 20),
             
             noteView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             noteView.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
             noteView.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -16),
             
-            noteView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 20)
+            bruteForceButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            bruteForceButton.topAnchor.constraint(equalTo: noteView.bottomAnchor, constant: 16),
+            bruteForceButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -16),
+            bruteForceButton.heightAnchor.constraint(equalToConstant: 50),
             
+            bruteForceButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 20),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: stackLoginPassword.centerXAnchor),
+            activityIndicator.bottomAnchor.constraint(equalTo: stackLoginPassword.bottomAnchor, constant: -16)
+//            activityIndicator.centerYAnchor.constraint(equalTo: bruteForceButton.centerYAnchor)
             
         ])
         
