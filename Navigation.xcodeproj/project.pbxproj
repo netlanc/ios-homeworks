@@ -44,6 +44,7 @@
 		DEB1819D2B122C90009653F9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB1819C2B122C90009653F9 /* User.swift */; };
 		DEBA1CAB2ACF47BB0027C8B5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBA1CAA2ACF47BB0027C8B5 /* Extension.swift */; };
 		DED440162AC6120D008B3F9A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED440152AC6120D008B3F9A /* InfoViewController.swift */; };
+		DED49A4C2B501BB8008B9078 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED49A4B2B501BB8008B9078 /* NetworkService.swift */; };
 		DEE4FFF02B3D7A470069AE4B /* BruteForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE4FFEF2B3D7A470069AE4B /* BruteForce.swift */; };
 		DEFD80F52AE978E9000D5E4A /* ProfilePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD80F42AE978E9000D5E4A /* ProfilePhoto.swift */; };
 /* End PBXBuildFile section */
@@ -124,6 +125,7 @@
 		DEB1819C2B122C90009653F9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DEBA1CAA2ACF47BB0027C8B5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DED440152AC6120D008B3F9A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		DED49A4B2B501BB8008B9078 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		DEE4FFEF2B3D7A470069AE4B /* BruteForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForce.swift; sourceTree = "<group>"; };
 		DEFD80F42AE978E9000D5E4A /* ProfilePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhoto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -271,6 +273,7 @@
 		DEA3FBA22AEEB6160003E196 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DED49A4A2B501BA4008B9078 /* NetworkService */,
 				DEB1819B2B122C80009653F9 /* User */,
 				DEA3FBAF2AEEE88B0003E196 /* Gallery */,
 				DEA3FBA42AEEB63A0003E196 /* Post */,
@@ -327,6 +330,14 @@
 				DEE4FFEF2B3D7A470069AE4B /* BruteForce.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		DED49A4A2B501BA4008B9078 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				DED49A4B2B501BB8008B9078 /* NetworkService.swift */,
+			);
+			path = NetworkService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -505,6 +516,7 @@
 				DE23C7302B2F7E16009CC723 /* ProfileCoordinator.swift in Sources */,
 				DEE4FFF02B3D7A470069AE4B /* BruteForce.swift in Sources */,
 				DE559F932AC499F900797548 /* AppDelegate.swift in Sources */,
+				DED49A4C2B501BB8008B9078 /* NetworkService.swift in Sources */,
 				DEA3FBAC2AEEE7D30003E196 /* GalleryViewController.swift in Sources */,
 				DEB057852B33556300EE2C7C /* BaseCoordinator.swift in Sources */,
 				DE97B26A2ADC22B5006B2826 /* ProfilePost.swift in Sources */,

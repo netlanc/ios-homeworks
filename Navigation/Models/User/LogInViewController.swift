@@ -225,9 +225,9 @@ Password: password
     
     override func viewDidAppear(_ animated: Bool) {
         
-        Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { _ in
-            self.showBanner()
-        })
+//        Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { _ in
+//            self.showBanner()
+//        })
     }
     
     func showBanner() {
