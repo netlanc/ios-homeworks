@@ -7,16 +7,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        
-        let appConfiguration: AppConfiguration = .urlPeople("https://swapi.dev/api/people/8")
-        NetworkService.request(for: appConfiguration) { result in
-                    switch result {
-                    case .success(let data):
-                        print("\nSuccess: \(data)")
-                    case .failure(let error):
-                        print("Error: \(error.localizedDescription)")
-                    }
-                }
+//        let url = AppConfiguration.peopleURL.url
+//        NetworkService.request(url: url) { result in
+//                    switch result {
+//                    case .success(let data):
+//                        print("\nSuccess: \(data)")
+//                    case .failure(let error):
+//                        print("Error: \(error.localizedDescription)")
+//                    }
+//                }
         
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = MainCoordinator().start()
