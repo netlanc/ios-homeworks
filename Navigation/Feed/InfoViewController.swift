@@ -3,6 +3,8 @@ import StorageService
 
 class InfoViewController: UIViewController {
     
+    private var dataRepository: DataRepository?
+    
     private let titleDefault = "Сейчас что то подгрузится"
     
     private lazy var titleLabel: UILabel = {
@@ -46,6 +48,8 @@ class InfoViewController: UIViewController {
         view.addSubview(planetLabel)
         view.addSubview(button)
         
+        dataRepository = DataRepository(networkService: NetworkService())
+        
         setupConstraint()
         getUserNetworkService()
         getPlanetNetworkService()
@@ -71,57 +75,47 @@ class InfoViewController: UIViewController {
     
     private func getPlanetNetworkService(){
         
-        let url = AppConfiguration.planetURL.url
-        NetworkService.request(url: url) { result in
+        dataRepository?.getPlanetData { [weak self] result in
+            
+            guard let self = self else { return }
             switch result {
-            case .success(let data):
+            case .success(let planetData):
                 
-                do {
-                    
-                    let planetData = try JSONDecoder().decode(PlanetData.self, from: data)
-                    
-                    self.planetLabel.text = "Период обращения планеты \(planetData.name) вокруг свойей звезды - \(planetData.orbitalPeriod)"
-                    
-                } catch {
-                    
-                    print("Decode JSON error: \(error)");
-                    
+                DispatchQueue.main.async {
+                    self.planetLabel.text = "Период обращения планеты \(planetData.name) вокруг своей звезды - \(planetData.orbitalPeriod)"
                 }
                 
             case .failure(let error):
-                print("Error: \(error.localizedDescription)")
+                
+                DispatchQueue.main.async {
+                    print("Error: \(error.localizedDescription)")
+                }
+                
             }
+            
         }
-        
     }
     
     private func getUserNetworkService(){
         
-        let url = AppConfiguration.userURL.url
-        NetworkService.request(url: url) { result in
+        dataRepository?.gethUserData { [weak self] result in
+            
+            guard let self = self else { return }
             switch result {
-            case .success(let data):
+            case .success(let title):
                 
-                do {
-                    
-                    if let jsonData = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        
-                        if let title = jsonData["title"] as? String {
-                            
-                            //                                    print("title - ", title)
-                            self.titleLabel.text = title
-                            
-                        }
-                        
-                    }
-                    
-                } catch {
-                    print("Decode JSON error: \(error)");
+                DispatchQueue.main.async {
+                    self.titleLabel.text = title
                 }
                 
             case .failure(let error):
-                print("Error: \(error.localizedDescription)")
+                
+                DispatchQueue.main.async {
+                    print("Error: \(error.localizedDescription)")
+                }
+                
             }
+            
         }
         
     }
