@@ -1,4 +1,6 @@
 import UIKit
+//import FirebaseCore
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -26,6 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
+        try? Auth.auth().signOut()
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

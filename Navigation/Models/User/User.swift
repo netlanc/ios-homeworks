@@ -3,13 +3,15 @@ import UIKit
 class User {
     
     var login: String
+    var email: String
     var name: String
     var status: String
     var password: String
     var avatar: UIImage
     
-    init(login: String, password: String, name: String, status: String, avatar: UIImage) {
+    init(login: String, email: String, password: String, name: String, status: String, avatar: UIImage) {
         self.login = login
+        self.email = email
         self.password = password
         self.name = name
         self.status = status
@@ -20,6 +22,7 @@ class User {
 
 protocol UserService: AnyObject {
     var delegate: UserServiceDelegate? { get set }
+    func setUser(email: String) -> Bool
     func getUser(by login: String) -> User?
     func loginUser(login: String, password: String) -> Bool
     func logoutUser()
@@ -42,10 +45,28 @@ class CurrentUserService: UserService {
     private var users: [User] = []
     
     private init () {
-        self.users.append(User(login: "Grut", password: "password1", name: "Я есть грут", status: "i am Groot", avatar: UIImage(named: "Grut")!))
-        self.users.append(User(login: "Grut2", password: "password2", name: "Я есть грут2", status: "i am Groot2", avatar: UIImage(named: "Grut02")!))
-        self.users.append(User(login: "user", password: "password", name: "Я есть user", status: "i am user", avatar: UIImage(named: "Grut03")!))
+        // Данные для пользователя которые подгрузятся если соответствия по email не найдено
+        self.users.append(User(login: "Grut default", email: "grut@example.com", password: "password", name: "Я есть грут", status: "i am Groot", avatar: UIImage(named: "Grut05")!))
         
+        self.users.append(User(login: "Grut", email: "netlanc@yandex.ru", password: "password1", name: "Я есть грут", status: "i am Groot", avatar: UIImage(named: "Grut")!))
+        self.users.append(User(login: "Grut2", email: "netlanc1@yandex.ru", password: "password2", name: "Я есть грут2", status: "i am Groot2", avatar: UIImage(named: "Grut02")!))
+        self.users.append(User(login: "user", email: "netlanc2@yandex.ru", password: "password", name: "Я есть user", status: "i am user", avatar: UIImage(named: "Grut03")!))
+        
+    }
+    
+    func setUser(email: String) -> Bool {
+        
+        var user = getUser(email: email)
+        if (user == nil) {
+            user = users.first
+        }
+        self.currentUser = user
+        
+        return false
+    }
+    
+    func getUser(email: String) -> User? {
+        return users.first(where: { $0.email == email }) ?? nil
     }
     
     func getUser(by login: String) -> User? {
@@ -71,6 +92,7 @@ class CurrentUserService: UserService {
     
     func getCurrentUser(completion: @escaping (Result<User, Error>) -> Void) {
         // Имитирует запрос данных из сети (делая паузу в 3 секунды)
+
         DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: { [weak self] in
             guard let self = self else { return }
             // Главное

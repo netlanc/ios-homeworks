@@ -4,7 +4,7 @@ class LogInViewController: UIViewController {
     
     var profileModel: ProfileViewModel
     
-    var loginDelegate: LoginViewControllerDelegate?
+    private var loginDelegate: LoginViewControllerDelegate?
     
     var brutForce = BruteForce()
     
@@ -43,13 +43,13 @@ class LogInViewController: UIViewController {
         textField.placeholder = "Username"
         
         // Чтобы не вводить в форму
-//        #if DEBUG // Схема - Navigation
-//        textField.text = "TestGrut"
-//        #else
-//        textField.text = "user"
-//        #endif
+        //        #if DEBUG // Схема - Navigation
+        //        textField.text = "TestGrut"
+        //        #else
+        //        textField.text = "user"
+        //        #endif
         
-        textField.text = "Grut"
+        textField.text = "netlanc@yandex.ru"
         
         textField.textColor = .black
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
@@ -57,7 +57,7 @@ class LogInViewController: UIViewController {
         textField.tintColor = .gray
         
         textField.backgroundColor = .systemGray6
-//        textField.translatesAutoresizingMaskIntoConstraints = false
+        //        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.frame.size.height = 50
         
         textField.delegate = self
@@ -80,7 +80,7 @@ class LogInViewController: UIViewController {
         textField.isSecureTextEntry = true
         textField.frame.size.height = 50
         
-//        textField.translatesAutoresizingMaskIntoConstraints = false
+        //        textField.translatesAutoresizingMaskIntoConstraints = false
         
         textField.delegate = self
         
@@ -192,8 +192,8 @@ class LogInViewController: UIViewController {
         noteLabel.text = """
 Note
 Еще пользователь
-User login: user
-Password: password
+User login: netlanc@yandex.ru
+Password: password1
 """
         
         noteLabel.textColor = .systemGray
@@ -214,8 +214,9 @@ Password: password
     }()
     
     // MARK: - Init
-    init(profileModel: ProfileViewModel) {
+    init(profileModel: ProfileViewModel, loginInspector: LoginViewControllerDelegate) {
         self.profileModel = profileModel
+        self.loginDelegate = loginInspector
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -225,14 +226,14 @@ Password: password
     
     override func viewDidAppear(_ animated: Bool) {
         
-//        Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { _ in
-//            self.showBanner()
-//        })
+        //        Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { _ in
+        //            self.showBanner()
+        //        })
     }
     
     func showBanner() {
         let bannerViewController = BannerViewController()
-
+        
         bannerViewController.modalTransitionStyle = .coverVertical // flipHorizontal
         bannerViewController.modalPresentationStyle = .pageSheet // pageSheet / overFullScreen
         
@@ -256,44 +257,35 @@ Password: password
     }
     
     @objc private func handleLogInPressed() {
-    
-        
-        guard let login = loginTextField.text, let password = passwordTextField.text else {
-            
-            runAlert(textAlert: "Что то пошло не так!")
+        guard let email = loginTextField.text, let password = passwordTextField.text else {
+            runAlert(textAlert: "Заполните пожалуйста логин и пароль")
             return
         }
         
-        if login == "" || password == "" {
-            
-            runAlert(textAlert: "Логин и пароль не могут быть пустыми")
-            return
+        // Проверка учетных данных через делегата
+        loginDelegate?.check(login: email, password: password) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success:
+                
+                // По хорошему тут бы еще проверку на существование данных о
+                loginDelegate?.setCurrentUser()
+                
+                profileModel.changeStateIfNeeded()
+                profileModel.showProfile?()
+                
+            case .failure(let error):
+                if let authError = error as? AuthError, case .empty(let description) = authError {
+                    print("Error---", description)
+                    self.runAlert(textAlert: description)
+                } else {
+                    print("Error---", error.localizedDescription)
+                    self.runAlert(textAlert: error.localizedDescription)
+                }
+            }
         }
-        
-        if loginDelegate?.check(login: login, password: password) == true {
-            // Логин и пароль верны, переходите на профиль
-            
-            //let viewProfileModel = ProfileViewModel()
-            profileModel.changeStateIfNeeded()
-            profileModel.showProfile?()
-            //let profileViewController = ProfileViewController(viewModel: viewProfileModel)
-            
-//            profileViewController.user = CurrentUserService().currentUser
-            
-            //navigationController?.pushViewController(profileViewController, animated: true)
-        } else {
-            
-            runAlert(textAlert: "Не верный логин или пароль")
-        }
-        
     }
     
-//    func runAlert(textAlert: String = "Неизвестная ошибка", titleAlert: String = "Ошибка", buttonAlert: String = "Ok") {
-//        let alert = UIAlertController(title: titleAlert, message: textAlert, preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: buttonAlert, style: .default, handler: nil))
-//        present(alert, animated: true, completion: nil)
-//        
-//    }
     
     @objc func runBruteForce() {
         
@@ -304,7 +296,7 @@ Password: password
         self.activityIndicator.startAnimating()
         
         //self.passwordTextField.isSecureTextEntry = false
-
+        
         print("Генерируем и подбираем пароль")
         
         let dispatchQueueGlobal = DispatchQueue.global(qos: .background)
@@ -338,7 +330,7 @@ Password: password
             scrollView.bottomAnchor.constraint(equalTo: safeAreaGuide.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: safeAreaGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor),
-
+            
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
@@ -373,7 +365,7 @@ Password: password
             
             activityIndicator.centerXAnchor.constraint(equalTo: stackLoginPassword.centerXAnchor),
             activityIndicator.bottomAnchor.constraint(equalTo: stackLoginPassword.bottomAnchor, constant: -16)
-//            activityIndicator.centerYAnchor.constraint(equalTo: bruteForceButton.centerYAnchor)
+            //            activityIndicator.centerYAnchor.constraint(equalTo: bruteForceButton.centerYAnchor)
             
         ])
         
