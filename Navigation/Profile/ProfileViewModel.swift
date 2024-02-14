@@ -27,7 +27,6 @@ final class ProfileViewModel: ProfileVMProtocol {
     
     var state: State = .initial {
         didSet {
-            print(state)
             currentState?(state)
         }
     }

@@ -16,11 +16,12 @@ class ProfileCoordinator: ProfileBaseCoordinator {
             self?.showGalleryScreen()
         }
         
-        let loginViewController = LogInViewController(profileModel: profileModel)
+        let checkerService = CheckerService()
+        let loginInspector = MyLoginFactory(checkerService: checkerService).makeLoginInspector()
+        
+        let loginViewController = LogInViewController(profileModel: profileModel, loginInspector: loginInspector)
         loginViewController.view.backgroundColor = .systemBackground
         
-        let loginInspector = MyLoginFactory().makeLoginInspector()
-        loginViewController.loginDelegate = loginInspector
         rootViewController = UINavigationController(
             rootViewController: loginViewController
         )
