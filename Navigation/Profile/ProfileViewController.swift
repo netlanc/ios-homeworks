@@ -19,7 +19,10 @@ extension ProfileViewController: profileVCDelegate {
     }
 }
 
+
 class ProfileViewController: UIViewController {
+    
+    private let coreDataService = CoreDataService.shared
     
     private var viewModel: ProfileViewModel
     
@@ -147,20 +150,80 @@ extension ProfileViewController: UITableViewDelegate {
         return 200
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             viewModel.showGallery?()
+        } else {
+            let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
+            doubleTapGesture.numberOfTapsRequired = 2
             
-            //            let galleryVC = GalleryViewController()
-            //            //galleryVC.galleryPhotos = profilePhotos
-            //            
-            //            let backBtn = UIBarButtonItem()
-            //            backBtn.title = "Назад"
-            //            navigationController?.navigationItem.backBarButtonItem = backBtn
-            //            
-            //            navigationController?.pushViewController(galleryVC, animated: true)
+            guard let cell = tableView.cellForRow(at: indexPath) as? PostTableViewCell else { return }
+            cell.contentView.addGestureRecognizer(doubleTapGesture)
         }
     }
+    
+    // Метод для обработки двойного тапа
+    @objc func handleDoubleTap(_ recognizer: UITapGestureRecognizer) {
+        if recognizer.state == .recognized {
+            // Получаем точку касания
+            let touchPoint = recognizer.location(in: tableView)
+            
+            // Получаем индекс ячейки, над которой произошел тап
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                // Получаем индекс поста
+                let index = indexPath.row - 1
+                
+                var isLiked = true
+                
+                // Проверяем, есть ли индекс уже в CoreData
+                if coreDataService.containsLikedPostIndex(index) {
+                    // Если есть, удаляем его
+                    isLiked = false
+                    coreDataService.deleteLikedPostIndex(index)
+                } else {
+                    // Если нет, добавляем
+                    coreDataService.saveLikedPostIndex(index)
+                }
+                
+                // Выводим индекс поста в консоль
+                print("Double tapped post at index:", index)
+                
+                // Показываем анимацию сердечка
+                showHeartAnimation(at: indexPath, isLiked: isLiked)
+            }
+        }
+    }
+    
+    // Метод для отображения анимации сердечка по центру ячейки
+    private func showHeartAnimation(at indexPath: IndexPath, isLiked: Bool) {
+        
+        let systemNameImage = !isLiked ? "heart" : "heart.fill"
+        
+        let heartImageView = UIImageView(image: UIImage(systemName: systemNameImage))
+        heartImageView.tintColor = !isLiked ? .gray : .red
+        heartImageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        heartImageView.center = tableView.cellForRow(at: indexPath)?.center ?? view.center
+        heartImageView.alpha = 0
+        
+        tableView.addSubview(heartImageView)
+        
+        // Анимация появления сердечка
+        UIView.animate(withDuration: 0.5) {
+            heartImageView.alpha = 1
+        } completion: { _ in
+            // Задержка перед исчезновением
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                // Анимация исчезновения сердечка
+                UIView.animate(withDuration: 0.5) {
+                    heartImageView.alpha = 0
+                } completion: { _ in
+                    heartImageView.removeFromSuperview()
+                }
+            }
+        }
+    }
+    
 }
 
 extension ProfileViewController: UITableViewDataSource {
@@ -179,6 +242,7 @@ extension ProfileViewController: UITableViewDataSource {
             cell.photos = profilePhotos
             
             return cell
+            
         } else {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? PostTableViewCell else {

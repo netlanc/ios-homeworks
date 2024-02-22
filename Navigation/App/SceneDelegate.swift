@@ -8,19 +8,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-//        let url = AppConfiguration.peopleURL.url
-//        NetworkService.request(url: url) { result in
-//                    switch result {
-//                    case .success(let data):
-//                        print("\nSuccess: \(data)")
-//                    case .failure(let error):
-//                        print("Error: \(error.localizedDescription)")
-//                    }
-//                }
+
         
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = MainCoordinator().start()
+        
+        let profileModel = ProfileViewModel.shared
+        let mainCoordinator = MainCoordinator(profileModel: profileModel)
+        
+        window?.rootViewController = mainCoordinator.start()
         
         window?.makeKeyAndVisible()
         

@@ -92,29 +92,16 @@ class CurrentUserService: UserService {
     
     func getCurrentUser(completion: @escaping (Result<User, Error>) -> Void) {
         // Имитирует запрос данных из сети (делая паузу в 3 секунды)
-
-        DispatchQueue.global().asyncAfter(deadline: .now() + 3, execute: { [weak self] in
-            guard let self = self else { return }
+        DispatchQueue.global().asyncAfter(deadline: .now() + 3) { [weak self] in
+            guard let self = self else { return completion(.failure(NSError(domain: "Error", code: -1, userInfo: nil))) }
             // Главное
-            completion(.success(self.currentUser!))
-        })
+            if let user = self.currentUser {
+                completion(.success(user))
+            } else {
+                let error = NSError(domain: "Error", code: -1, userInfo: nil)
+                completion(.failure(error))
+            }
+        }
     }
 }
 
-//class TestUserService: UserService {
-//    
-//    private var currentUser: User
-//    
-//    init () {
-//        self.currentUser = User(login: "TestGrut", password: "password4", name: "Test Я есть грут", status: "Test i am Groot", avatar: UIImage(named: "Grut01")!)
-//    }
-//    
-//    func getUser(by login: String) -> User? {
-//        
-//        if login != currentUser.login {
-//            return nil
-//        }
-//        
-//        return currentUser
-//    }
-//}

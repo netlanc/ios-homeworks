@@ -35,6 +35,7 @@ protocol FeedBaseCoordinator: Coordinator {
 }
 
 protocol MainBaseCoordinator: Coordinator {
+    var profileModel: ProfileViewModel { get set }
     var profileCoordinator: ProfileBaseCoordinator { get }
     var feedCoordinator: FeedBaseCoordinator { get }
     func moveTo(flow: AppFlow)
