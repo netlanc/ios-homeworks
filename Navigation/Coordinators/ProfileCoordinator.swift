@@ -2,10 +2,14 @@ import UIKit
 
 class ProfileCoordinator: ProfileBaseCoordinator {
 
-    
+    var profileModel: ProfileViewModel
     var parentCoordinator: MainBaseCoordinator?
+    
     lazy var rootViewController: UIViewController = UIViewController()
-    lazy var profileModel: ProfileViewModel = ProfileViewModel()
+    
+    init (profileModel: ProfileViewModel){
+        self.profileModel = profileModel
+    }
     
     func start() -> UIViewController {
     

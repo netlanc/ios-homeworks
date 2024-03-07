@@ -17,6 +17,8 @@ enum State {
 
 final class ProfileViewModel: ProfileVMProtocol {
     
+    static let shared = ProfileViewModel() // Singleton instance
+    
     var showProfile: Action?
     var showGallery: Action?
     
@@ -31,7 +33,7 @@ final class ProfileViewModel: ProfileVMProtocol {
         }
     }
     
-    init () {
+    private init () {
         self.userService = CurrentUserService.shared
     }
     
