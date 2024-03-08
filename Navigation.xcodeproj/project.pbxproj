@@ -39,6 +39,7 @@
 		DE7F04BE2B21F423003CB83E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7F04BD2B21F423003CB83E /* CustomButton.swift */; };
 		DE8145882B66B31A0060BE9D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DE8145872B66B31A0060BE9D /* FirebaseAuth */; };
 		DE88B4D02B3DE6F700B29386 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88B4CF2B3DE6F700B29386 /* BannerViewController.swift */; };
+		DE8FB4CE2B99D7B3008262F7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8FB4CD2B99D7B3008262F7 /* MapViewController.swift */; };
 		DE97B26A2ADC22B5006B2826 /* ProfilePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97B2692ADC22B5006B2826 /* ProfilePost.swift */; };
 		DEA3FBA62AEEC1030003E196 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FBA52AEEC1030003E196 /* PhotosTableViewCell.swift */; };
 		DEA3FBAA2AEEC15C0003E196 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FBA92AEEC15C0003E196 /* PhotosCollectionViewCell.swift */; };
@@ -127,6 +128,7 @@
 		DE7E1B352B22FA05005B7E66 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		DE7F04BD2B21F423003CB83E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		DE88B4CF2B3DE6F700B29386 /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
+		DE8FB4CD2B99D7B3008262F7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DE97B2692ADC22B5006B2826 /* ProfilePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePost.swift; sourceTree = "<group>"; };
 		DEA3FBA52AEEC1030003E196 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		DEA3FBA92AEEC15C0003E196 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		DE559F912AC499F900797548 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				DE8FB4CC2B99D793008262F7 /* Map */,
 				DE88B4CC2B3DC9F800B29386 /* Banner */,
 				DEB057832B33549300EE2C7C /* Coordinators */,
 				DE9C1A7C2AFBE838005233EA /* App */,
@@ -268,6 +271,14 @@
 				DE88B4CF2B3DE6F700B29386 /* BannerViewController.swift */,
 			);
 			path = Banner;
+			sourceTree = "<group>";
+		};
+		DE8FB4CC2B99D793008262F7 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				DE8FB4CD2B99D7B3008262F7 /* MapViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		DE9C1A7C2AFBE838005233EA /* App */ = {
@@ -567,6 +578,7 @@
 				DE559F952AC499F900797548 /* SceneDelegate.swift in Sources */,
 				DEA8EDE32ACD5E1200F0C48C /* TextFieldWithPadding.swift in Sources */,
 				DE31D6482B87CC6C005C6EEF /* LikedCoordinator.swift in Sources */,
+				DE8FB4CE2B99D7B3008262F7 /* MapViewController.swift in Sources */,
 				DE6914E52ACED34700A58500 /* LogInViewController.swift in Sources */,
 				DEA3FBAE2AEEE84C0003E196 /* GalleryCollectionViewCell.swift in Sources */,
 				DEB1819D2B122C90009653F9 /* User.swift in Sources */,
@@ -856,6 +868,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Navigation/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Для досттупа к карте";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
@@ -887,6 +900,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Navigation/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Для досттупа к карте";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";

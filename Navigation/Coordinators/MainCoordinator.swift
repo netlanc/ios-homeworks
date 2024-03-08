@@ -51,8 +51,17 @@ class MainCoordinator: MainBaseCoordinator {
             tag: 2
         )
         
-        (rootViewController as? UITabBarController)?.viewControllers = [profileViewController, feedViewController, likedViewController]
+        let mapViewController = MapViewController()
+        mapViewController.tabBarItem = UITabBarItem(
+            title: "Map",
+            image: UIImage(systemName: "map"),
+            tag: 3
+        )
         
+        (rootViewController as? UITabBarController)?.viewControllers = [profileViewController, feedViewController, likedViewController, mapViewController]
+        
+        //(rootViewController as? UITabBarController)?.selectedIndex = 3
+
         return rootViewController
     }
     

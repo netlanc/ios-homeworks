@@ -19,3 +19,6 @@ extension LogInViewController: AlertRun {
 extension FeedViewController: AlertRun {
     
 }
+extension MapViewController: AlertRun {
+    
+}
