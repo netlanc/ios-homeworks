@@ -29,7 +29,7 @@ class MainCoordinator: MainBaseCoordinator {
         let profileViewController = profileCoordinator.start()
         profileCoordinator.parentCoordinator = self
         profileViewController.tabBarItem = UITabBarItem(
-            title: "Профиль",
+            title: NSLocalizedString("tab.profile", comment: ""),
             image: UIImage(
                 systemName: "person"),
             tag: 0
@@ -38,7 +38,7 @@ class MainCoordinator: MainBaseCoordinator {
         let feedViewController = feedCoordinator.start()
         feedCoordinator.parentCoordinator = self
         feedViewController.tabBarItem = UITabBarItem(
-            title: "Лента",
+            title: NSLocalizedString("tab.feed", comment: ""),
             image: UIImage(
                 systemName: "note"),
             tag: 1
@@ -46,14 +46,14 @@ class MainCoordinator: MainBaseCoordinator {
         
         let likedViewController = likedCoordinator.start()
         likedViewController.tabBarItem = UITabBarItem(
-            title: "Liked",
+            title: NSLocalizedString("tab.liked", comment: ""),
             image: UIImage(systemName: "heart"),
             tag: 2
         )
         
         let mapViewController = MapViewController()
         mapViewController.tabBarItem = UITabBarItem(
-            title: "Map",
+            title: NSLocalizedString("tab.map", comment: ""),
             image: UIImage(systemName: "map"),
             tag: 3
         )

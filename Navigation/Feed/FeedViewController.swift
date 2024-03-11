@@ -6,7 +6,7 @@ class FeedViewController: UIViewController {
     
     private lazy var textField: TextFieldWithPadding = {
         let textField = TextFieldWithPadding()
-        textField.placeholder = "Введите текст…"
+        textField.placeholder = NSLocalizedString("feed.check.input-placeholder", comment: "Введите текст…")
         
         textField.font = UIFont.systemFont(ofSize: 15)
         
@@ -21,7 +21,7 @@ class FeedViewController: UIViewController {
     }()
     
     private lazy var checkGuessButton: CustomButton = {
-        let checkGuessButton = CustomButton("Check", .white, .systemGreen, tapButton: { [weak self] in
+        let checkGuessButton = CustomButton(NSLocalizedString("feed.check.button-text", comment: "Check"), .white, .systemGreen, tapButton: { [weak self] in
             
                 guard let text = self?.textField.text, let passwordCheck = self?.passwordCheck  else {
                     // тут нужно вывести алер об ошибке
@@ -30,15 +30,15 @@ class FeedViewController: UIViewController {
                 }
             
                 if text.isEmpty {
-                    self?.runAlert(textAlert: "Заполните поле с текстом")
+                    self?.runAlert(textAlert: NSLocalizedString("feed.check.error.empty", comment: "Заполните поле с текстом"))
                     return
                 }
             
-                var textLabel = "Секретное слово не верно"
+                var textLabel = NSLocalizedString("feed.check.error.ok", comment: "Секретное слово не верно")
                 var textColor: UIColor = .red
             
                 if FeedModel().check(text) {
-                    textLabel = "Секретное слово введено правильно"
+                    textLabel = NSLocalizedString("feed.check.notice.ok", comment: "Секретное слово введено правильно")
                     textColor = .green
                 }
             
@@ -54,7 +54,7 @@ class FeedViewController: UIViewController {
     
     private lazy var checkLabel: UILabel = {
         let checkLabel = UILabel()
-        checkLabel.text = "Проверка введенного слова"
+        checkLabel.text = NSLocalizedString("feed.check.label", comment: "Проверка введенного слова")
         checkLabel.font = UIFont.systemFont(ofSize: 14)
         checkLabel.textColor = .gray
         checkLabel.layer.masksToBounds = true
@@ -65,7 +65,7 @@ class FeedViewController: UIViewController {
     }()
     
     private lazy var postButton1: CustomButton = {
-        let postButton1 = CustomButton("Показать пост", .white, .systemBlue, tapButton: { [weak self] in
+        let postButton1 = CustomButton(NSLocalizedString("post.view", comment: "Показать пост"), .white, .systemBlue, tapButton: { [weak self] in
                 self?.showPostButtonTapped()
             }
         )
@@ -74,7 +74,7 @@ class FeedViewController: UIViewController {
     }()
     
     private lazy var postButton2: CustomButton = {
-        let postButton2 = CustomButton("Читать пост", .white, .systemRed, tapButton: { [weak self] in
+        let postButton2 = CustomButton(NSLocalizedString("post.read", comment: "Читать пост"), .white, .systemRed, tapButton: { [weak self] in
                 self?.showPostButtonTapped()
             }
         )
@@ -128,7 +128,7 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Лента"
+        title = NSLocalizedString("feed.title", comment: "Лента")
         view.backgroundColor = .systemOrange
 
         view.addSubview(textField)

@@ -37,7 +37,11 @@ class MapViewController: UIViewController {
     }()
     
     private let segmentedControl: UISegmentedControl = {
-        let items = ["Standard", "Satellite", "Hybrid"]
+        let items = [
+            NSLocalizedString("map.button.standart", comment: "Standard"),
+            NSLocalizedString("map.button.satellite", comment: "Satellite"),
+            NSLocalizedString("map.button.hybrid", comment: "Hybrid")
+        ]
         let segmentedControl = UISegmentedControl(items: items)
         
         segmentedControl.selectedSegmentIndex = 0
@@ -49,7 +53,7 @@ class MapViewController: UIViewController {
     
     private lazy var cityButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Поиск города", for: .normal)
+        button.setTitle(NSLocalizedString("map.search-city", comment: "Поиск города"), for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.backgroundColor = .white
         
@@ -63,7 +67,7 @@ class MapViewController: UIViewController {
     
     private lazy var clearButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Очистить метки", for: .normal)
+        button.setTitle(NSLocalizedString("map.clear-pins", comment: "Очистить метки"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemRed
         
@@ -154,15 +158,15 @@ class MapViewController: UIViewController {
     @objc private func selectCity() {
         
         // лень допиливать рашширение, по этому делаю алерт
-        let alertController = UIAlertController(title: "Введите город", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("map.alert.title", comment: "Введите город"), message: nil, preferredStyle: .alert)
         alertController.addTextField { textField in
-            textField.placeholder = "Город"
+            textField.placeholder = NSLocalizedString("map.alert.placeholder", comment: "Город")
         }
         
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("sys.cancel", comment: "Отмена"), style: .cancel)
         alertController.addAction(cancelAction)
         
-        let okAction = UIAlertAction(title: "Найти", style: .default) { [weak self] _ in
+        let okAction = UIAlertAction(title: NSLocalizedString("map.alert-to-find", comment: "Найти"), style: .default) { [weak self] _ in
             if let textField = alertController.textFields?.first, let cityName = textField.text {
                 // Показываем индикатор загрузки
                 self?.showActivityIndicator()
@@ -183,7 +187,7 @@ class MapViewController: UIViewController {
         geocoder.geocodeAddressString(cityName) { [weak self] placemarks, error in
             guard let placemark = placemarks?.first, let location = placemark.location else {
                 // Обработка ошибки
-                _self.runAlert(textAlert: "Не удалось найти местоположение для указанного города")
+                _self.runAlert(textAlert: NSLocalizedString("map.error.not-find-location", comment: "Не удалось найти местоположение для указанного города"))
                 // Скрываем индикатор загрузки в случае ошибки
                 self?.hideActivityIndicator()
                 return
@@ -225,7 +229,7 @@ class MapViewController: UIViewController {
     private func showRoute() {
         let _self = self
         guard let destinationCoordinate = destinationCoordinate else {
-            self.runAlert(textAlert: "Координаты пункта назначения отсутствуют")
+            self.runAlert(textAlert: NSLocalizedString("map.error.not-coordinate", comment: "Координаты пункта назначения отсутствуют"))
             return
         }
         
@@ -244,9 +248,16 @@ class MapViewController: UIViewController {
         
         directions.calculate { [weak self] response, error in
             
+            // Скрываем индикатор загрузки после завершения запроса
+            self?.hideActivityIndicator()
+            
             guard let response = response, let route = response.routes.first else {
                 
-                _self.runAlert(textAlert: "Ошибка при построении маршрута: \(error?.localizedDescription ?? "Неизвестная ошибка")")
+                
+                let textError = error?.localizedDescription ?? "Неизвестная ошибка"
+                
+                _self.runAlert(textAlert: String(format: NSLocalizedString("map.error.not-route", comment: "Ошибка при построении маршрута: \(error?.localizedDescription ?? "Неизвестная ошибка")"), textError))
+                
                 return
             }
             
@@ -259,9 +270,6 @@ class MapViewController: UIViewController {
             // Отображение маршрута на экране
             let rect = route.polyline.boundingMapRect
             self?.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
-            
-            // Скрываем индикатор загрузки после завершения запроса
-            self?.hideActivityIndicator()
         }
     }
 }

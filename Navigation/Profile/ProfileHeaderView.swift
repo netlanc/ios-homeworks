@@ -16,7 +16,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var paddedTextField: TextFieldWithPadding = {
         let paddedTextField = TextFieldWithPadding(frame: CGRect(x: 20, y: 20, width: 200, height: 40))
-        paddedTextField.placeholder = "Заполните текст…"
+        paddedTextField.placeholder = NSLocalizedString("profile.text.label.placeholder", comment: "Заполните текст…")
         
         paddedTextField.font = UIFont.systemFont(ofSize: 15)
         
@@ -32,7 +32,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var statusButton: UIButton = {
         let statusButton = UIButton()
-        statusButton.setTitle("Set status", for: .normal)
+        statusButton.setTitle(NSLocalizedString("profile.status.button.title", comment: "Set status"), for: .normal)
         statusButton.setTitleColor(.white, for: .normal)
         
         statusButton.backgroundColor = .systemBlue
@@ -51,7 +51,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var statusLabel: UILabel = {
         let statusLabel = UILabel()
-        statusLabel.text = "Loading..."
+        statusLabel.text = NSLocalizedString("profile.loading", comment: "Loading...")
         statusLabel.font = UIFont.systemFont(ofSize: 14)
         statusLabel.textColor = .gray
         statusLabel.layer.masksToBounds = true
@@ -64,7 +64,7 @@ class ProfileHeaderView: UIView {
     
     private lazy var fullNameLabel: UILabel = {
         let fullNameLabel = UILabel()
-        fullNameLabel.text = "Loading..."
+        fullNameLabel.text = NSLocalizedString("profile.loading", comment: "Loading...")
         fullNameLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
         fullNameLabel.textColor = .black
         fullNameLabel.layer.masksToBounds = true

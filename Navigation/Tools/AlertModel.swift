@@ -5,7 +5,9 @@ protocol AlertRun {
 }
 
 extension AlertRun where Self: UIViewController {
-    func runAlert(textAlert: String = "Неизвестная ошибка", titleAlert: String = "Ошибка", buttonAlert: String = "Ok") {
+    func runAlert(textAlert: String = NSLocalizedString("alert.text-default", comment: "Неизвестная ошибка"),
+                  titleAlert: String = NSLocalizedString("alert.title-default", comment: "Ошибка"),
+                  buttonAlert: String = NSLocalizedString("sys.ok", comment: "Ok")) {
         let alert = UIAlertController(title: titleAlert, message: textAlert, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: buttonAlert, style: .default, handler: nil))
         present(alert, animated: true, completion: nil)

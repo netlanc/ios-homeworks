@@ -19,3 +19,10 @@ extension LogInViewController: UITextFieldDelegate {
         return true
     }
 }
+
+
+extension String {
+    var localizeDict: String {
+        NSLocalizedString(self, tableName: "LocalizableDict", comment: "")
+    }
+}

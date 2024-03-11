@@ -64,8 +64,6 @@ final class Checker: UserServiceDelegate {
     
     func check(login: String, password: String) -> Bool {
         
-        print("check 555", login)
-        
         return userService.loginUser(login: login, password: password)
     }
 }

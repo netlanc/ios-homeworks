@@ -14,6 +14,7 @@
 		DE02E29B2B0A9B320096F523 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE02E2862B0A9B310096F523 /* StorageService.framework */; };
 		DE02E29C2B0A9B320096F523 /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE02E2862B0A9B310096F523 /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE02E2A62B0A9BA40096F523 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE02E2A52B0A9BA40096F523 /* Post.swift */; };
+		DE05CA742B9CEC9B001FD03C /* LocalizableStringOld.xcstrings_back in Resources */ = {isa = PBXBuildFile; fileRef = DE05CA732B9CEC9B001FD03C /* LocalizableStringOld.xcstrings_back */; };
 		DE23C72C2B2F7ADF009CC723 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE23C72B2B2F7ADF009CC723 /* FeedCoordinator.swift */; };
 		DE23C7302B2F7E16009CC723 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE23C72F2B2F7E16009CC723 /* ProfileCoordinator.swift */; };
 		DE2BF2CC2B1CD4F800A26DFF /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2BF2CB2B1CD4F800A26DFF /* Checker.swift */; };
@@ -41,6 +42,9 @@
 		DE88B4D02B3DE6F700B29386 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88B4CF2B3DE6F700B29386 /* BannerViewController.swift */; };
 		DE8FB4CE2B99D7B3008262F7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8FB4CD2B99D7B3008262F7 /* MapViewController.swift */; };
 		DE97B26A2ADC22B5006B2826 /* ProfilePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97B2692ADC22B5006B2826 /* ProfilePost.swift */; };
+		DE9891C72B9EE223001CD768 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = DE9891C62B9EE223001CD768 /* InfoPlist.xcstrings */; };
+		DE9891CA2B9EE338001CD768 /* LocalizableDict.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = DE9891CC2B9EE338001CD768 /* LocalizableDict.stringsdict */; };
+		DE9891CF2B9EE8EE001CD768 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = DE9891CE2B9EE8EE001CD768 /* Localizable.xcstrings */; };
 		DEA3FBA62AEEC1030003E196 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FBA52AEEC1030003E196 /* PhotosTableViewCell.swift */; };
 		DEA3FBAA2AEEC15C0003E196 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FBA92AEEC15C0003E196 /* PhotosCollectionViewCell.swift */; };
 		DEA3FBAC2AEEE7D30003E196 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FBAB2AEEE7D30003E196 /* GalleryViewController.swift */; };
@@ -54,7 +58,6 @@
 		DED49A4C2B501BB8008B9078 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED49A4B2B501BB8008B9078 /* NetworkService.swift */; };
 		DEE4FFF02B3D7A470069AE4B /* BruteForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE4FFEF2B3D7A470069AE4B /* BruteForce.swift */; };
 		DEEDC7E92B99C72E007292AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DEEDC7E82B99C72E007292AF /* GoogleService-Info.plist */; };
-		DEF7A5672B8682E8005595C3 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF7A5662B8682E8005595C3 /* FavoritesViewController.swift */; };
 		DEFD80F52AE978E9000D5E4A /* ProfilePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD80F42AE978E9000D5E4A /* ProfilePhoto.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +106,7 @@
 		DE02E28F2B0A9B320096F523 /* StorageServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorageServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE02E2962B0A9B320096F523 /* StorageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceTests.swift; sourceTree = "<group>"; };
 		DE02E2A52B0A9BA40096F523 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		DE05CA732B9CEC9B001FD03C /* LocalizableStringOld.xcstrings_back */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LocalizableStringOld.xcstrings_back; sourceTree = "<group>"; };
 		DE23C72B2B2F7ADF009CC723 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		DE23C72F2B2F7E16009CC723 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		DE2BF2CB2B1CD4F800A26DFF /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
@@ -130,6 +134,10 @@
 		DE88B4CF2B3DE6F700B29386 /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
 		DE8FB4CD2B99D7B3008262F7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DE97B2692ADC22B5006B2826 /* ProfilePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePost.swift; sourceTree = "<group>"; };
+		DE9891C62B9EE223001CD768 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		DE9891CD2B9EE33A001CD768 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/LocalizableDict.stringsdict; sourceTree = "<group>"; };
+		DE9891CE2B9EE8EE001CD768 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		DE9891D12B9EEC62001CD768 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/LocalizableDict.stringsdict; sourceTree = "<group>"; };
 		DEA3FBA52AEEC1030003E196 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		DEA3FBA92AEEC15C0003E196 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		DEA3FBAB2AEEE7D30003E196 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +151,6 @@
 		DED49A4B2B501BB8008B9078 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		DEE4FFEF2B3D7A470069AE4B /* BruteForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForce.swift; sourceTree = "<group>"; };
 		DEEDC7E82B99C72E007292AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../test-git/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		DEF7A5662B8682E8005595C3 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		DEFD80F42AE978E9000D5E4A /* ProfilePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhoto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +201,17 @@
 			path = StorageServiceTests;
 			sourceTree = "<group>";
 		};
+		DE05CA722B9CEC55001FD03C /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				DE05CA732B9CEC9B001FD03C /* LocalizableStringOld.xcstrings_back */,
+				DE9891C62B9EE223001CD768 /* InfoPlist.xcstrings */,
+				DE9891CC2B9EE338001CD768 /* LocalizableDict.stringsdict */,
+				DE9891CE2B9EE8EE001CD768 /* Localizable.xcstrings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		DE31D63F2B877ACA005C6EEF /* CodeData */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +244,7 @@
 		DE559F912AC499F900797548 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				DE05CA722B9CEC55001FD03C /* Localization */,
 				DE8FB4CC2B99D793008262F7 /* Map */,
 				DE88B4CC2B3DC9F800B29386 /* Banner */,
 				DEB057832B33549300EE2C7C /* Coordinators */,
@@ -250,7 +269,6 @@
 				DE559FAA2AC4A63400797548 /* ProfileViewController.swift */,
 				DE2CBAB82AD957B0004C5EF3 /* ProfileHeaderView.swift */,
 				DE7D8CFC2B28E52200FC17BF /* ProfileViewModel.swift */,
-				DEF7A5662B8682E8005595C3 /* FavoritesViewController.swift */,
 				DE31D63D2B871FA2005C6EEF /* LikedPostsViewController.swift */,
 			);
 			path = Profile;
@@ -462,7 +480,7 @@
 		DE559F872AC499F900797548 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
@@ -485,6 +503,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = DE559F862AC499F900797548;
 			packageReferences = (
@@ -522,8 +541,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE559F9F2AC499FA00797548 /* LaunchScreen.storyboard in Resources */,
+				DE9891C72B9EE223001CD768 /* InfoPlist.xcstrings in Resources */,
 				DE559F9C2AC499FA00797548 /* Assets.xcassets in Resources */,
+				DE05CA742B9CEC9B001FD03C /* LocalizableStringOld.xcstrings_back in Resources */,
 				DEEDC7E92B99C72E007292AF /* GoogleService-Info.plist in Resources */,
+				DE9891CA2B9EE338001CD768 /* LocalizableDict.stringsdict in Resources */,
+				DE9891CF2B9EE8EE001CD768 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,7 +606,6 @@
 				DEA3FBAE2AEEE84C0003E196 /* GalleryCollectionViewCell.swift in Sources */,
 				DEB1819D2B122C90009653F9 /* User.swift in Sources */,
 				DEA3FBAA2AEEC15C0003E196 /* PhotosCollectionViewCell.swift in Sources */,
-				DEF7A5672B8682E8005595C3 /* FavoritesViewController.swift in Sources */,
 				DE2CBAB92AD957B0004C5EF3 /* ProfileHeaderView.swift in Sources */,
 				DE23C72C2B2F7ADF009CC723 /* FeedCoordinator.swift in Sources */,
 				DE7E1B362B22FA05005B7E66 /* AlertModel.swift in Sources */,
@@ -618,6 +640,15 @@
 				DE559F9E2AC499FA00797548 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DE9891CC2B9EE338001CD768 /* LocalizableDict.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE9891CD2B9EE33A001CD768 /* ru */,
+				DE9891D12B9EEC62001CD768 /* en */,
+			);
+			name = LocalizableDict.stringsdict;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -744,6 +775,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -807,6 +839,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -932,7 +965,7 @@
 				DE02E29F2B0A9B320096F523 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		DE02E2A32B0A9B320096F523 /* Build configuration list for PBXNativeTarget "StorageServiceTests" */ = {
 			isa = XCConfigurationList;
@@ -941,7 +974,7 @@
 				DE02E2A12B0A9B320096F523 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		DE559F8A2AC499F900797548 /* Build configuration list for PBXProject "Navigation" */ = {
 			isa = XCConfigurationList;
@@ -950,7 +983,7 @@
 				DE559FA22AC499FA00797548 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		DE559FA32AC499FA00797548 /* Build configuration list for PBXNativeTarget "Navigation" */ = {
 			isa = XCConfigurationList;
@@ -959,7 +992,7 @@
 				DE559FA52AC499FA00797548 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 

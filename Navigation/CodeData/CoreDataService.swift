@@ -16,7 +16,7 @@ class CoreDataService {
         let container = NSPersistentContainer(name: "CodeDataNavigation")
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error {
-                fatalError("Failed to load Core Data stack: \(error)")
+                fatalError(String(format: NSLocalizedString("coredata.error.load", comment: "Failed to load Core Data stack: %@"), error.localizedDescription))
             }
         })
         return container
@@ -29,7 +29,7 @@ class CoreDataService {
                 try context.save()
             } catch {
                 let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                fatalError(String(format: NSLocalizedString("coredata.error.unresolved", comment: "Unresolved error %@, %@"),nserror, nserror.userInfo))
             }
         }
     }
@@ -51,8 +51,8 @@ class CoreDataService {
                 context.delete(result)
                 saveContext()
             }
-        } catch {
-            print("Error deleting liked post index: \(error)")
+        } catch let error {
+            print(String(format: NSLocalizedString("coredata.error.deleting-liked", comment: "Error deleting liked post index: %@"), error.localizedDescription))
         }
     }
     
@@ -64,22 +64,22 @@ class CoreDataService {
         do {
             let count = try context.count(for: fetchRequest)
             return count > 0
-        } catch {
-            print("Error fetching liked post index: \(error)")
+        } catch let error {
+            print(String(format: NSLocalizedString("coredata.error.fetching-liked", comment: "Error fetching liked post index: %@"), error.localizedDescription))
             return false
         }
     }
     
     func getLikedPostIndexes() -> [Int] {
-           let context = persistentContainer.viewContext
-           let fetchRequest: NSFetchRequest<LikedPostIndex> = LikedPostIndex.fetchRequest()
-           
-           do {
-               let likedPostIndexes = try context.fetch(fetchRequest)
-               return likedPostIndexes.map { Int($0.index) }
-           } catch {
-               print("Error fetching liked post indexes: \(error)")
-               return []
-           }
-       }
+        let context = persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<LikedPostIndex> = LikedPostIndex.fetchRequest()
+        
+        do {
+            let likedPostIndexes = try context.fetch(fetchRequest)
+            return likedPostIndexes.map { Int($0.index) }
+        } catch let error {
+            print(String(format: NSLocalizedString("coredata.error.fetching-liked", comment: "Error fetching liked post indexes: %@"), error.localizedDescription))
+            return []
+        }
+    }
 }

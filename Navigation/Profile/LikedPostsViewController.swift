@@ -31,7 +31,7 @@ class LikedPostsViewController:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Понравившиеся посты"
+        navigationItem.title = NSLocalizedString("liked.title", comment: "Понравившиеся посты")
         
         view.addSubview(tableView)
         
@@ -112,7 +112,7 @@ extension LikedPostsViewController: UITableViewDataSource {
         if !bAuth {
             
             let cell = UITableViewCell()
-            cell.textLabel?.text = "Нужно залогиниться"
+            cell.textLabel?.text = NSLocalizedString("sys.error.auth", comment: "Нужно залогиниться")
             
             return cell
             
@@ -123,7 +123,7 @@ extension LikedPostsViewController: UITableViewDataSource {
             if likedPostIndexes.count == 0 {
                 
                 let cell = UITableViewCell()
-                cell.textLabel?.text = "Еще ничего не добавлено в понравившиеся"
+                cell.textLabel?.text = NSLocalizedString("liked.empty", comment: "Еще ничего не добавлено в понравившиеся")
                 
                 return cell
                 
@@ -132,7 +132,7 @@ extension LikedPostsViewController: UITableViewDataSource {
                 let postIndex = likedPostIndexes[indexPath.row]
                 
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? PostTableViewCell else {
-                    fatalError("Не удалось создать ячейку")
+                    fatalError(NSLocalizedString("sys.error.create-cell", comment: "Не удалось создать ячейку"))
                 }
                 
                 let post = posts[postIndex]

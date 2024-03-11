@@ -78,8 +78,9 @@ class PostTableViewCell: UITableViewCell {
         titleLabel.text = post.title
         descriptionText.text = post.description
         postImageView.image = UIImage(named: post.image)
-        likesLabel.text = "Likes: \(post.likes)"
-        viewsLabel.text = "Views: \(post.views)"
+        
+        likesLabel.text = String.localizedStringWithFormat("likes_dict".localizeDict, post.likes)
+        viewsLabel.text = String.localizedStringWithFormat("views_dict".localizeDict, post.views)
     }
     
     private func tunePost() {

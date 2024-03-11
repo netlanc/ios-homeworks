@@ -58,11 +58,11 @@ class ProfileViewController: UIViewController {
         
         // что бы увидеть что цвет фона зависит от выбранной схемы
         // пришлось изменить один констрейн в методе setupContraints
-#if DEBUG // Схема - Navigation
-        view.backgroundColor = .systemRed
-#else
+//#if DEBUG // Схема - Navigation
+//        view.backgroundColor = .systemRed
+//#else
         view.backgroundColor = .systemBlue
-#endif
+//#endif
         
         view.addSubview(tableView)
         
@@ -236,7 +236,7 @@ extension ProfileViewController: UITableViewDataSource {
         if indexPath.row == 0 {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as? PhotosTableViewCell else {
-                fatalError("Не удалось создать ячейку")
+                fatalError(NSLocalizedString("sys.error.create-cell", comment: "Не удалось создать ячейку"))
             }
             
             cell.photos = profilePhotos
@@ -246,7 +246,7 @@ extension ProfileViewController: UITableViewDataSource {
         } else {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? PostTableViewCell else {
-                fatalError("Не удалось создать ячейку")
+                fatalError(NSLocalizedString("sys.error.create-cell", comment: "Не удалось создать ячейку"))
             }
             
             let post = posts[indexPath.row - 1]

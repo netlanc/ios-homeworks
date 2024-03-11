@@ -40,7 +40,7 @@ class LogInViewController: UIViewController {
     
     private lazy var loginTextField: TextFieldWithPadding = {
         let textField = TextFieldWithPadding()
-        textField.placeholder = "Username"
+        textField.placeholder = NSLocalizedString("login.input.username", comment: "Username")
         
         // Чтобы не вводить в форму
         //        #if DEBUG // Схема - Navigation
@@ -67,7 +67,7 @@ class LogInViewController: UIViewController {
     
     private lazy var passwordTextField: TextFieldWithPadding = {
         let textField = TextFieldWithPadding()
-        textField.placeholder = "Password"
+        textField.placeholder = NSLocalizedString("login.input.password", comment: "Password")
         
         textField.text = "password1"
         
@@ -136,7 +136,7 @@ class LogInViewController: UIViewController {
         button.setBackgroundImage(alpha08Image, for: .selected)
         button.setBackgroundImage(alpha08Image, for: .disabled)
         
-        button.setTitle("Log In", for: .normal)
+        button.setTitle(NSLocalizedString("login.button.login", comment: "Log In"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         
         button.layer.cornerRadius = 10
@@ -154,8 +154,8 @@ class LogInViewController: UIViewController {
         
         button.backgroundColor = .systemGreen
         
-        button.setTitle("Подобрать пароль", for: .normal)
-        button.setTitle("Подбираем пароль", for: .disabled)
+        button.setTitle(NSLocalizedString("login.input.title-brtf", comment: "Подобрать пароль"), for: .normal)
+        button.setTitle(NSLocalizedString("login.input.title-brtf", comment: "Подбираем пароль"), for: .disabled)
         button.setTitleColor(.white, for: .normal)
         button.setTitleColor(.systemGray6, for: .disabled)
         
@@ -189,12 +189,13 @@ class LogInViewController: UIViewController {
         let noteLabel = UILabel()
         noteLabel.font = UIFont.systemFont(ofSize: 14)
         
-        noteLabel.text = """
-Note
-Еще пользователь
-User login: netlanc@yandex.ru
-Password: password1
-"""
+//        noteLabel.text = """
+//Note
+//Еще пользователь
+//User login: netlanc@yandex.ru
+//Password: password1
+//"""
+        noteLabel.text = NSLocalizedString("login.label.note", comment: "Подбираем пароль")
         
         noteLabel.textColor = .systemGray
         noteLabel.numberOfLines = 0
@@ -258,7 +259,7 @@ Password: password1
     
     @objc private func handleLogInPressed() {
         guard let email = loginTextField.text, let password = passwordTextField.text else {
-            runAlert(textAlert: "Заполните пожалуйста логин и пароль")
+            runAlert(textAlert: NSLocalizedString("login.error.input-empty", comment: "Заполните пожалуйста логин и пароль"))
             return
         }
         
@@ -276,10 +277,10 @@ Password: password1
                 
             case .failure(let error):
                 if let authError = error as? AuthError, case .empty(let description) = authError {
-                    print("Error---", description)
+//                    print("Error---", description)
                     self.runAlert(textAlert: description)
                 } else {
-                    print("Error---", error.localizedDescription)
+//                    print("Error---", error.localizedDescription)
                     self.runAlert(textAlert: error.localizedDescription)
                 }
             }
@@ -297,16 +298,16 @@ Password: password1
         
         //self.passwordTextField.isSecureTextEntry = false
         
-        print("Генерируем и подбираем пароль")
+//        print("Генерируем и подбираем пароль")
         
         let dispatchQueueGlobal = DispatchQueue.global(qos: .background)
         dispatchQueueGlobal.async {
             let passwordGenerate = self.brutForce.generatePassword()
             
-            print("Сгенерироали пароль: ", passwordGenerate)
+//            print("Сгенерироали пароль: ", passwordGenerate)
             let passwordBruteForce = self.brutForce.bruteForce(passwordToUnlock: passwordGenerate)
             
-            print("Подобрали пароль: ", passwordBruteForce)
+//            print("Подобрали пароль: ", passwordBruteForce)
             
             let dispatchQueueMain = DispatchQueue.main
             dispatchQueueMain.async {

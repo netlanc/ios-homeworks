@@ -31,7 +31,7 @@ class BannerViewController: UIViewController {
         let titleText = UILabel()
         titleText.font = UIFont.italicSystemFont(ofSize: 27)
         
-        titleText.text = "С рождеством и новым годом поздравляет..."
+        titleText.text = NSLocalizedString("banner.text", comment: "С рождеством и новым годом поздравляет...")
         
         titleText.textColor = .white
         titleText.numberOfLines = 0
@@ -46,7 +46,7 @@ class BannerViewController: UIViewController {
 //        titleText.font = UIFont.systemFont(ofSize: 18)
         nameText.font = UIFont.italicSystemFont(ofSize: 50)
         
-        nameText.text = "Я есть грут"
+        nameText.text = NSLocalizedString("banner.name", comment: "Я есть грут")
         
         nameText.textColor = .white
         nameText.numberOfLines = 0

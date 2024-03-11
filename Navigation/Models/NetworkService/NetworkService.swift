@@ -55,7 +55,7 @@ class DataRepository {
                         completion(.success(title))
                         
                     } else {
-                        completion(.failure(.custom(description: "Failed to parse JSON data")))
+                        completion(.failure(.custom(description: NSLocalizedString("network.error.json", comment: "Failed to parse JSON data"))))
                     }
                     
                 } catch {

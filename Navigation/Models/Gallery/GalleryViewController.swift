@@ -32,7 +32,7 @@ class GalleryViewController: UIViewController {
         super.viewDidLoad()
     
         view.backgroundColor = .white
-        title = "Фото галерея"
+        title = NSLocalizedString("gallery.title", comment: "Фото галерея")
     
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -79,7 +79,7 @@ class GalleryViewController: UIViewController {
         super.viewWillAppear(animated)
         
         let backButton = UIBarButtonItem()
-        backButton.title = "Назад"
+        backButton.title = NSLocalizedString("nav.back", comment: "Назад")
         
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -153,7 +153,7 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         LayoutConstant.spacing
     }
-
+ 
     func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         LayoutConstant.spacing
     }

@@ -47,7 +47,7 @@ class ProfileCoordinator: ProfileBaseCoordinator {
         //galleryVC.galleryPhotos = profilePhotos
         
         let backBtn = UIBarButtonItem()
-        backBtn.title = "Назад"
+        backBtn.title = NSLocalizedString("nav.back", comment: "")
         navigationRootViewController?.navigationItem.backBarButtonItem = backBtn
         
         navigationRootViewController?.pushViewController(galleryVC, animated: true)

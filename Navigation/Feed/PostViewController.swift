@@ -21,7 +21,7 @@ class PostViewController: UIViewController {
     }()
     
     private lazy var infoButton: CustomButton = {
-        let infoButton = CustomButton("Показать данные", .white, .systemBlue, tapButton: { [weak self] in
+        let infoButton = CustomButton(NSLocalizedString("post.show-data", comment: "Показать данные"), .white, .systemBlue, tapButton: { [weak self] in
                 self?.infoBarButtonTapped()
             }
         )
@@ -34,7 +34,7 @@ class PostViewController: UIViewController {
         
         configureInfoBarButton()
         // передаем в title страницы текст заголовка
-        title = "Пост"
+        title = NSLocalizedString("post.title-default", comment: "Пост")
         
         view.backgroundColor = .systemGray
 

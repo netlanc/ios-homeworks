@@ -5,7 +5,7 @@ class InfoViewController: UIViewController {
     
     private var dataRepository: DataRepository?
     
-    private let titleDefault = "Сейчас что то подгрузится"
+    private let titleDefault = NSLocalizedString("info.label.default", comment: "Сейчас что то подгрузится")
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -34,7 +34,7 @@ class InfoViewController: UIViewController {
     
     private lazy var button: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Нажми", for: .normal)
+        button.setTitle(NSLocalizedString("info.button.text-tap", comment: "Нажми"), for: .normal)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -82,7 +82,7 @@ class InfoViewController: UIViewController {
             case .success(let planetData):
                 
                 DispatchQueue.main.async {
-                    self.planetLabel.text = "Период обращения планеты \(planetData.name) вокруг своей звезды - \(planetData.orbitalPeriod)"
+                    self.planetLabel.text = String(format: NSLocalizedString("info.planet.text", comment: "Период обращения планеты %@ вокруг своей звезды - %@"), planetData.name, planetData.orbitalPeriod)
                 }
                 
             case .failure(let error):
@@ -122,15 +122,15 @@ class InfoViewController: UIViewController {
     
     @objc func didTapButton() {
         // Создание UIAlertController
-        let alertController = UIAlertController(title: "Заголовок", message: "Сообщение", preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("info.tap.alert-title", comment: "Заголовок"), message: NSLocalizedString("info.tap.alert-message", comment: "Сообщение"), preferredStyle: .alert)
         
         // Обработка нажатия на Ok
-        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+        let okAction = UIAlertAction(title: NSLocalizedString("sys.ok", comment: "OK"), style: .default) { (action) in
             print("Вы нажали ОК.")
         }
         
         // Обработка нажатия на Отмена
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel) { (action) in
+        let cancelAction = UIAlertAction(title: NSLocalizedString("sys.cancel", comment: "Отмена"), style: .cancel) { (action) in
             print("Вы нажали Отмена.")
         }
         
