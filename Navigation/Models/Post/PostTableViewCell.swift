@@ -7,7 +7,7 @@ class PostTableViewCell: UITableViewCell {
         let titleLabel = UILabel()
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         titleLabel.numberOfLines = 2
-        titleLabel.textColor = .black
+        titleLabel.textColor = UIColor.createColor(anyMode: .black, darkMode: .lightGray)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -20,7 +20,7 @@ class PostTableViewCell: UITableViewCell {
         let descriptionText = UILabel()
         descriptionText.font = UIFont.systemFont(ofSize: 14)
         
-        descriptionText.textColor = .systemGray
+        descriptionText.textColor = UIColor.createColor(anyMode: .gray, darkMode: .white)
         descriptionText.numberOfLines = 0
         
         descriptionText.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +35,7 @@ class PostTableViewCell: UITableViewCell {
         
         postImageView.contentMode = .scaleAspectFit
         postImageView.clipsToBounds = true
-        postImageView.backgroundColor = .black
+        postImageView.backgroundColor = .systemGray3
         
         postImageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -45,7 +45,7 @@ class PostTableViewCell: UITableViewCell {
     private lazy var likesLabel: UILabel = {
         let likesLabel = UILabel()
         likesLabel.font = UIFont.systemFont(ofSize: 16)
-        likesLabel.textColor = .black
+        likesLabel.textColor = UIColor.createColor(anyMode: .gray, darkMode: .lightGray)
         
         likesLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -55,7 +55,7 @@ class PostTableViewCell: UITableViewCell {
     private lazy var viewsLabel: UILabel = {
         let viewsLabel = UILabel()
         viewsLabel.font = UIFont.systemFont(ofSize: 16)
-        viewsLabel.textColor = .black
+        viewsLabel.textColor = UIColor.createColor(anyMode: .gray, darkMode: .lightGray)
         
         viewsLabel.translatesAutoresizingMaskIntoConstraints = false
         

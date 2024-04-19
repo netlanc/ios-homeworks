@@ -18,7 +18,6 @@ class GalleryViewController: UIViewController {
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .white
         
         collectionView.register(
             GalleryCollectionViewCell.self,
@@ -31,7 +30,7 @@ class GalleryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         title = NSLocalizedString("gallery.title", comment: "Фото галерея")
     
         collectionView.delegate = self
@@ -160,7 +159,7 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(
 _ collectionView: UICollectionView,willDisplay cell: UICollectionViewCell,forItemAt indexPath: IndexPath) {
-        cell.contentView.backgroundColor = .white
+        cell.contentView.backgroundColor = .systemBackground
     }
     
 }

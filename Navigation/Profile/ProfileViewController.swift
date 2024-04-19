@@ -61,7 +61,7 @@ class ProfileViewController: UIViewController {
 //#if DEBUG // Схема - Navigation
 //        view.backgroundColor = .systemRed
 //#else
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .systemBackground
 //#endif
         
         view.addSubview(tableView)
@@ -201,7 +201,7 @@ extension ProfileViewController: UITableViewDelegate {
         let systemNameImage = !isLiked ? "heart" : "heart.fill"
         
         let heartImageView = UIImageView(image: UIImage(systemName: systemNameImage))
-        heartImageView.tintColor = !isLiked ? .gray : .red
+        heartImageView.tintColor = !isLiked ? .systemGray : .systemRed
         heartImageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         heartImageView.center = tableView.cellForRow(at: indexPath)?.center ?? view.center
         heartImageView.alpha = 0

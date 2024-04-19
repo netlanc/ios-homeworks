@@ -10,7 +10,7 @@ class ProfileHeaderView: UIView {
     let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .medium)
         indicator.translatesAutoresizingMaskIntoConstraints = false
-        
+        indicator.tintColor = UIColor.createColor(anyMode: .black, darkMode: .white)
         return indicator
     }()
     
@@ -20,7 +20,7 @@ class ProfileHeaderView: UIView {
         
         paddedTextField.font = UIFont.systemFont(ofSize: 15)
         
-        paddedTextField.backgroundColor = .white
+        paddedTextField.backgroundColor = UIColor.createColor(anyMode: .white, darkMode: .darkGray)
         paddedTextField.layer.cornerRadius = 12
         paddedTextField.layer.borderWidth = 1
         paddedTextField.layer.borderColor = UIColor.black.cgColor
@@ -38,7 +38,7 @@ class ProfileHeaderView: UIView {
         statusButton.backgroundColor = .systemBlue
         statusButton.layer.cornerRadius = 4
         statusButton.layer.shadowRadius = 4
-        statusButton.layer.shadowColor = UIColor.black.cgColor
+        statusButton.layer.shadowColor = UIColor.gray.cgColor
         statusButton.layer.shadowOffset.width = 4
         statusButton.layer.shadowOffset.height = 4
         statusButton.layer.shadowOpacity = 0.7
@@ -53,7 +53,7 @@ class ProfileHeaderView: UIView {
         let statusLabel = UILabel()
         statusLabel.text = NSLocalizedString("profile.loading", comment: "Loading...")
         statusLabel.font = UIFont.systemFont(ofSize: 14)
-        statusLabel.textColor = .gray
+        statusLabel.textColor = UIColor.createColor(anyMode: .gray, darkMode: .lightGray)
         statusLabel.layer.masksToBounds = true
         statusLabel.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         
@@ -66,7 +66,7 @@ class ProfileHeaderView: UIView {
         let fullNameLabel = UILabel()
         fullNameLabel.text = NSLocalizedString("profile.loading", comment: "Loading...")
         fullNameLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
-        fullNameLabel.textColor = .black
+        fullNameLabel.textColor = UIColor.createColor(anyMode: .black, darkMode: .lightText)
         fullNameLabel.layer.masksToBounds = true
         fullNameLabel.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
         
@@ -113,7 +113,7 @@ class ProfileHeaderView: UIView {
     private lazy var avatarCloseButton: UIButton = {
         let avatarCloseButton = UIButton()
         avatarCloseButton.setImage(UIImage(systemName: "xmark"), for: .normal)
-        avatarCloseButton.tintColor = .black
+        avatarCloseButton.tintColor = UIColor.createColor(anyMode: .black, darkMode: UIColor.lightGray)
         avatarCloseButton.alpha = 0
         
         avatarCloseButton.backgroundColor = .clear

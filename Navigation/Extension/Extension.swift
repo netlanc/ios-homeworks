@@ -26,3 +26,24 @@ extension String {
         NSLocalizedString(self, tableName: "LocalizableDict", comment: "")
     }
 }
+
+
+extension UIColor {
+    
+    static func createColor(anyMode: UIColor, darkMode: UIColor) -> UIColor {
+        
+        guard #available(iOS 13.0, *) else {
+            return anyMode
+        }
+        
+        return UIColor { (traitCollection) -> UIColor in
+            
+            return traitCollection.userInterfaceStyle == .dark ?  darkMode:
+            anyMode
+            
+        }
+        
+    }
+    
+}
+

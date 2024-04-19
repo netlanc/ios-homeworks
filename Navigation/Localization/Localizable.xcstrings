@@ -903,7 +903,7 @@
       }
     },
     "sys.ok" : {
-      "comment" : "Ok\nOK",
+      "comment" : "OK\nOk",
       "localizations" : {
         "en" : {
           "stringUnit" : {

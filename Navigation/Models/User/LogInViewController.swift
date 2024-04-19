@@ -51,7 +51,7 @@ class LogInViewController: UIViewController {
         
         textField.text = "netlanc@yandex.ru"
         
-        textField.textColor = .black
+        textField.textColor = UIColor.createColor(anyMode: .gray, darkMode: .lightText)
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textField.autocapitalizationType = .none
         textField.tintColor = .gray
@@ -71,7 +71,7 @@ class LogInViewController: UIViewController {
         
         textField.text = "password1"
         
-        textField.textColor = .black
+        textField.textColor = UIColor.createColor(anyMode: .gray, darkMode: .lightText)
         textField.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         textField.autocapitalizationType = .none
         textField.tintColor = .gray
@@ -87,7 +87,6 @@ class LogInViewController: UIViewController {
         return textField
     }()
     
-    
     private lazy var viewSeparator: UIView = {
         let separator = UIView()
         
@@ -96,7 +95,6 @@ class LogInViewController: UIViewController {
         
         return separator
     }()
-    
     
     private lazy var stackLoginPassword: UIStackView = {
         let stackView = UIStackView()

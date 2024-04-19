@@ -32,9 +32,11 @@ class PhotosTableViewCell: UITableViewCell {
     }()
     
     private let disclosureIndicator: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "chevron.right")?.withTintColor(.black, renderingMode: .alwaysOriginal))
+        let imageView = UIImageView(image: UIImage(systemName: "chevron.right")?.withTintColor(UIColor.createColor(anyMode: .black, darkMode: UIColor.lightGray), renderingMode: .alwaysOriginal))
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
         return imageView
     }()
     
