@@ -255,7 +255,8 @@ class LogInViewController: UIViewController {
         setupContraints()
     }
     
-    @objc private func handleLogInPressed() {
+    //@objc private
+    @objc func handleLogInPressed() {
         guard let email = loginTextField.text, let password = passwordTextField.text else {
             runAlert(textAlert: NSLocalizedString("login.error.input-empty", comment: "Заполните пожалуйста логин и пароль"))
             return

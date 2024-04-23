@@ -17,6 +17,7 @@
 		DE05CA742B9CEC9B001FD03C /* LocalizableStringOld.xcstrings_back in Resources */ = {isa = PBXBuildFile; fileRef = DE05CA732B9CEC9B001FD03C /* LocalizableStringOld.xcstrings_back */; };
 		DE23C72C2B2F7ADF009CC723 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE23C72B2B2F7ADF009CC723 /* FeedCoordinator.swift */; };
 		DE23C7302B2F7E16009CC723 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE23C72F2B2F7E16009CC723 /* ProfileCoordinator.swift */; };
+		DE29C6192BD7CFD7008FCC21 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE29C6182BD7CFD7008FCC21 /* LogInViewController.swift */; };
 		DE2BF2CC2B1CD4F800A26DFF /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2BF2CB2B1CD4F800A26DFF /* Checker.swift */; };
 		DE2BF2D02B1CE89400A26DFF /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = DE2BF2CF2B1CE89400A26DFF /* iOSIntPackage */; };
 		DE2CBAB92AD957B0004C5EF3 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2CBAB82AD957B0004C5EF3 /* ProfileHeaderView.swift */; };
@@ -39,6 +40,7 @@
 		DE7E1B362B22FA05005B7E66 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7E1B352B22FA05005B7E66 /* AlertModel.swift */; };
 		DE7F04BE2B21F423003CB83E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7F04BD2B21F423003CB83E /* CustomButton.swift */; };
 		DE8145882B66B31A0060BE9D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DE8145872B66B31A0060BE9D /* FirebaseAuth */; };
+		DE878AAB2BD7EEAF0078D1DE /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE878AAA2BD7EEAF0078D1DE /* FeedViewControllerTests.swift */; };
 		DE88B4D02B3DE6F700B29386 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE88B4CF2B3DE6F700B29386 /* BannerViewController.swift */; };
 		DE8FB4CE2B99D7B3008262F7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8FB4CD2B99D7B3008262F7 /* MapViewController.swift */; };
 		DE97B26A2ADC22B5006B2826 /* ProfilePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97B2692ADC22B5006B2826 /* ProfilePost.swift */; };
@@ -83,6 +85,13 @@
 			remoteGlobalIDString = DE02E2852B0A9B310096F523;
 			remoteInfo = StorageService;
 		};
+		DE29C6132BD7CF2F008FCC21 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE559F872AC499F900797548 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE559F8E2AC499F900797548;
+			remoteInfo = Navigation;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -109,6 +118,8 @@
 		DE05CA732B9CEC9B001FD03C /* LocalizableStringOld.xcstrings_back */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LocalizableStringOld.xcstrings_back; sourceTree = "<group>"; };
 		DE23C72B2B2F7ADF009CC723 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		DE23C72F2B2F7E16009CC723 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		DE29C60F2BD7CF2F008FCC21 /* NavigationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavigationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE29C6182BD7CFD7008FCC21 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		DE2BF2CB2B1CD4F800A26DFF /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		DE2CBAB82AD957B0004C5EF3 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		DE2CBABB2AD967AD004C5EF3 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -131,6 +142,7 @@
 		DE7E1B332B22F66E005B7E66 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		DE7E1B352B22FA05005B7E66 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		DE7F04BD2B21F423003CB83E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		DE878AAA2BD7EEAF0078D1DE /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
 		DE88B4CF2B3DE6F700B29386 /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
 		DE8FB4CD2B99D7B3008262F7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DE97B2692ADC22B5006B2826 /* ProfilePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePost.swift; sourceTree = "<group>"; };
@@ -167,6 +179,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE02E2902B0A9B320096F523 /* StorageService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE29C60C2BD7CF2F008FCC21 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +231,15 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		DE29C6102BD7CF2F008FCC21 /* NavigationTests */ = {
+			isa = PBXGroup;
+			children = (
+				DE29C6182BD7CFD7008FCC21 /* LogInViewController.swift */,
+				DE878AAA2BD7EEAF0078D1DE /* FeedViewControllerTests.swift */,
+			);
+			path = NavigationTests;
+			sourceTree = "<group>";
+		};
 		DE31D63F2B877ACA005C6EEF /* CodeData */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				DE559F912AC499F900797548 /* Navigation */,
+				DE29C6102BD7CF2F008FCC21 /* NavigationTests */,
 				DE02E2872B0A9B310096F523 /* StorageService */,
 				DE02E2952B0A9B320096F523 /* StorageServiceTests */,
 				DE559F902AC499F900797548 /* Products */,
@@ -237,6 +266,7 @@
 				DE559F8F2AC499F900797548 /* Navigation.app */,
 				DE02E2862B0A9B310096F523 /* StorageService.framework */,
 				DE02E28F2B0A9B320096F523 /* StorageServiceTests.xctest */,
+				DE29C60F2BD7CF2F008FCC21 /* NavigationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -451,6 +481,24 @@
 			productReference = DE02E28F2B0A9B320096F523 /* StorageServiceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		DE29C60E2BD7CF2F008FCC21 /* NavigationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE29C6172BD7CF2F008FCC21 /* Build configuration list for PBXNativeTarget "NavigationTests" */;
+			buildPhases = (
+				DE29C60B2BD7CF2F008FCC21 /* Sources */,
+				DE29C60C2BD7CF2F008FCC21 /* Frameworks */,
+				DE29C60D2BD7CF2F008FCC21 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE29C6142BD7CF2F008FCC21 /* PBXTargetDependency */,
+			);
+			name = NavigationTests;
+			productName = NavigationTests;
+			productReference = DE29C60F2BD7CF2F008FCC21 /* NavigationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DE559F8E2AC499F900797548 /* Navigation */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE559FA32AC499FA00797548 /* Build configuration list for PBXNativeTarget "Navigation" */;
@@ -481,7 +529,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					DE02E2852B0A9B310096F523 = {
@@ -489,6 +537,10 @@
 					};
 					DE02E28E2B0A9B320096F523 = {
 						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = DE559F8E2AC499F900797548;
+					};
+					DE29C60E2BD7CF2F008FCC21 = {
+						CreatedOnToolsVersion = 15.3;
 						TestTargetID = DE559F8E2AC499F900797548;
 					};
 					DE559F8E2AC499F900797548 = {
@@ -517,6 +569,7 @@
 				DE559F8E2AC499F900797548 /* Navigation */,
 				DE02E2852B0A9B310096F523 /* StorageService */,
 				DE02E28E2B0A9B320096F523 /* StorageServiceTests */,
+				DE29C60E2BD7CF2F008FCC21 /* NavigationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -530,6 +583,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DE02E28D2B0A9B320096F523 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE29C60D2BD7CF2F008FCC21 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -567,6 +627,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE02E2972B0A9B320096F523 /* StorageServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE29C60B2BD7CF2F008FCC21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE878AAB2BD7EEAF0078D1DE /* FeedViewControllerTests.swift in Sources */,
+				DE29C6192BD7CFD7008FCC21 /* LogInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +699,11 @@
 			isa = PBXTargetDependency;
 			target = DE02E2852B0A9B310096F523 /* StorageService */;
 			targetProxy = DE02E2992B0A9B320096F523 /* PBXContainerItemProxy */;
+		};
+		DE29C6142BD7CF2F008FCC21 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE559F8E2AC499F900797548 /* Navigation */;
+			targetProxy = DE29C6132BD7CF2F008FCC21 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -766,6 +840,44 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Navigation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Navigation";
+			};
+			name = Release;
+		};
+		DE29C6152BD7CF2F008FCC21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WYV59N5GYJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.netlanc.ios.NavigationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Navigation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Navigation";
+			};
+			name = Debug;
+		};
+		DE29C6162BD7CF2F008FCC21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WYV59N5GYJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.netlanc.ios.NavigationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Navigation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Navigation";
 			};
 			name = Release;
@@ -972,6 +1084,15 @@
 			buildConfigurations = (
 				DE02E2A02B0A9B320096F523 /* Debug */,
 				DE02E2A12B0A9B320096F523 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DE29C6172BD7CF2F008FCC21 /* Build configuration list for PBXNativeTarget "NavigationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE29C6152BD7CF2F008FCC21 /* Debug */,
+				DE29C6162BD7CF2F008FCC21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

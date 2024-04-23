@@ -4,7 +4,8 @@ class FeedViewController: UIViewController {
     
     private let passwordCheck = "12345"
     
-    private lazy var textField: TextFieldWithPadding = {
+    //private
+    lazy var textField: TextFieldWithPadding = {
         let textField = TextFieldWithPadding()
         textField.placeholder = NSLocalizedString("feed.check.input-placeholder", comment: "Введите текст…")
         
@@ -20,7 +21,8 @@ class FeedViewController: UIViewController {
         return textField
     }()
     
-    private lazy var checkGuessButton: CustomButton = {
+    //private 
+    lazy var checkGuessButton: CustomButton = {
         let checkGuessButton = CustomButton(NSLocalizedString("feed.check.button-text", comment: "Check"), .white, .systemGreen, tapButton: { [weak self] in
             
                 guard let text = self?.textField.text, let passwordCheck = self?.passwordCheck  else {
@@ -52,7 +54,8 @@ class FeedViewController: UIViewController {
         return checkGuessButton
     }()
     
-    private lazy var checkLabel: UILabel = {
+    //private 
+    lazy var checkLabel: UILabel = {
         let checkLabel = UILabel()
         checkLabel.text = NSLocalizedString("feed.check.label", comment: "Проверка введенного слова")
         checkLabel.font = UIFont.systemFont(ofSize: 14)
@@ -64,7 +67,8 @@ class FeedViewController: UIViewController {
         return checkLabel
     }()
     
-    private lazy var postButton1: CustomButton = {
+    //private 
+    lazy var postButton1: CustomButton = {
         let postButton1 = CustomButton(NSLocalizedString("post.view", comment: "Показать пост"), .white, .systemBlue, tapButton: { [weak self] in
                 self?.showPostButtonTapped()
             }
@@ -73,7 +77,8 @@ class FeedViewController: UIViewController {
         return postButton1
     }()
     
-    private lazy var postButton2: CustomButton = {
+    //private 
+    lazy var postButton2: CustomButton = {
         let postButton2 = CustomButton(NSLocalizedString("post.read", comment: "Читать пост"), .white, .systemRed, tapButton: { [weak self] in
                 self?.showPostButtonTapped()
             }

@@ -20,7 +20,8 @@ class PostViewController: UIViewController {
         return titleLabel
     }()
     
-    private lazy var infoButton: CustomButton = {
+    //private 
+    lazy var infoButton: CustomButton = {
         let infoButton = CustomButton(NSLocalizedString("post.show-data", comment: "Показать данные"), .white, .systemBlue, tapButton: { [weak self] in
                 self?.infoBarButtonTapped()
             }

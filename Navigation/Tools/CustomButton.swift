@@ -2,7 +2,8 @@ import UIKit
 
 class CustomButton: UIButton {
     
-    private var tapButton: (() -> Void)?
+    //private 
+    var tapButton: (() -> Void)?
     
     init(_ title: String, _ titleColor: UIColor, _ background: UIColor, tapButton: (() -> Void)?) {
         super.init(frame: .zero)
@@ -31,7 +32,7 @@ class CustomButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc private func buttonTapped() {
+    @objc func buttonTapped() {
         tapButton?()
     }
 }
