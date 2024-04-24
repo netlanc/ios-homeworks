@@ -56,6 +56,7 @@
 		DEB057872B33559200EE2C7C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB057862B33559200EE2C7C /* MainCoordinator.swift */; };
 		DEB1819D2B122C90009653F9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB1819C2B122C90009653F9 /* User.swift */; };
 		DEBA1CAB2ACF47BB0027C8B5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBA1CAA2ACF47BB0027C8B5 /* Extension.swift */; };
+		DEC90A7A2BD97D6300671676 /* LocalNotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC90A792BD97D6300671676 /* LocalNotificationsService.swift */; };
 		DED440162AC6120D008B3F9A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED440152AC6120D008B3F9A /* InfoViewController.swift */; };
 		DED49A4C2B501BB8008B9078 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED49A4B2B501BB8008B9078 /* NetworkService.swift */; };
 		DEE4FFF02B3D7A470069AE4B /* BruteForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE4FFEF2B3D7A470069AE4B /* BruteForce.swift */; };
@@ -159,6 +160,7 @@
 		DEB057862B33559200EE2C7C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		DEB1819C2B122C90009653F9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DEBA1CAA2ACF47BB0027C8B5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		DEC90A792BD97D6300671676 /* LocalNotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsService.swift; sourceTree = "<group>"; };
 		DED440152AC6120D008B3F9A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		DED49A4B2B501BB8008B9078 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		DEE4FFEF2B3D7A470069AE4B /* BruteForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForce.swift; sourceTree = "<group>"; };
@@ -274,11 +276,12 @@
 		DE559F912AC499F900797548 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				DEC90A782BD97D0900671676 /* Notifications */,
+				DE9C1A7C2AFBE838005233EA /* App */,
 				DE05CA722B9CEC55001FD03C /* Localization */,
 				DE8FB4CC2B99D793008262F7 /* Map */,
 				DE88B4CC2B3DC9F800B29386 /* Banner */,
 				DEB057832B33549300EE2C7C /* Coordinators */,
-				DE9C1A7C2AFBE838005233EA /* App */,
 				DE7F04BC2B21F406003CB83E /* Tools */,
 				DE9C1A7E2AFBE888005233EA /* Extension */,
 				DE9C1A7D2AFBE861005233EA /* Feed */,
@@ -419,6 +422,14 @@
 				DEE4FFEF2B3D7A470069AE4B /* BruteForce.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		DEC90A782BD97D0900671676 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				DEC90A792BD97D6300671676 /* LocalNotificationsService.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		DED49A4A2B501BA4008B9078 /* NetworkService */ = {
@@ -657,6 +668,7 @@
 				DE559F932AC499F900797548 /* AppDelegate.swift in Sources */,
 				DED49A4C2B501BB8008B9078 /* NetworkService.swift in Sources */,
 				DEA3FBAC2AEEE7D30003E196 /* GalleryViewController.swift in Sources */,
+				DEC90A7A2BD97D6300671676 /* LocalNotificationsService.swift in Sources */,
 				DEB057852B33556300EE2C7C /* BaseCoordinator.swift in Sources */,
 				DE97B26A2ADC22B5006B2826 /* ProfilePost.swift in Sources */,
 				DE88B4D02B3DE6F700B29386 /* BannerViewController.swift in Sources */,
@@ -856,6 +868,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.netlanc.ios.NavigationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -875,6 +891,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.netlanc.ios.NavigationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
