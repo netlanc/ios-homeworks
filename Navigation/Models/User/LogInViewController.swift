@@ -147,6 +147,40 @@ class LogInViewController: UIViewController {
         return button
     }()
     
+    private lazy var faceIDButton: UIButton = {
+        let button = UIButton(type: .system)
+        
+        button.backgroundColor = .blue
+        
+        button.setTitle(NSLocalizedString("login.button.login_face_id", comment: "Log In FaceID"), for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
+        button.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.addTarget(self, action: #selector(handleFaceIDAuthentication), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    @objc func handleFaceIDAuthentication() {
+            LocalAuthorizationService.defaultService.authorizeIfPossible { [weak self] success in
+                guard let self = self else { return }
+                if success {
+                    // если Face ID прошла успешно, то входим в систему под "user".
+                    loginDelegate?.setCurrentUser()
+                    
+                    profileModel.changeStateIfNeeded()
+                    profileModel.showProfile?()
+                    
+                } else {
+                    // Face ID неудачна или была отменена
+                    print("FaceID authentication failed")
+                }
+            }
+        }
     private lazy var bruteForceButton: UIButton = {
         let button = UIButton()
         
@@ -251,6 +285,7 @@ class LogInViewController: UIViewController {
         contentView.addSubview(noteView)
         contentView.addSubview(bruteForceButton)
         contentView.addSubview(activityIndicator)
+        contentView.addSubview(faceIDButton)
         
         setupContraints()
     }
@@ -352,8 +387,13 @@ class LogInViewController: UIViewController {
             logInButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -16),
             logInButton.heightAnchor.constraint(equalToConstant: 50),
             
+            faceIDButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            faceIDButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
+            faceIDButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -16),
+            faceIDButton.heightAnchor.constraint(equalToConstant: 50),
+            
             noteView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            noteView.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
+            noteView.topAnchor.constraint(equalTo: faceIDButton.bottomAnchor, constant: 16),
             noteView.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -16),
             
             bruteForceButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),

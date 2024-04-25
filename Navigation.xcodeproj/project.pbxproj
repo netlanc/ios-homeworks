@@ -59,6 +59,7 @@
 		DEC90A7A2BD97D6300671676 /* LocalNotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC90A792BD97D6300671676 /* LocalNotificationsService.swift */; };
 		DED440162AC6120D008B3F9A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED440152AC6120D008B3F9A /* InfoViewController.swift */; };
 		DED49A4C2B501BB8008B9078 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED49A4B2B501BB8008B9078 /* NetworkService.swift */; };
+		DEDF96BF2BDA940900A7F66E /* LocalAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF96BE2BDA940900A7F66E /* LocalAuthorizationService.swift */; };
 		DEE4FFF02B3D7A470069AE4B /* BruteForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE4FFEF2B3D7A470069AE4B /* BruteForce.swift */; };
 		DEEDC7E92B99C72E007292AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DEEDC7E82B99C72E007292AF /* GoogleService-Info.plist */; };
 		DEFD80F52AE978E9000D5E4A /* ProfilePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFD80F42AE978E9000D5E4A /* ProfilePhoto.swift */; };
@@ -163,6 +164,7 @@
 		DEC90A792BD97D6300671676 /* LocalNotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsService.swift; sourceTree = "<group>"; };
 		DED440152AC6120D008B3F9A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		DED49A4B2B501BB8008B9078 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		DEDF96BE2BDA940900A7F66E /* LocalAuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthorizationService.swift; sourceTree = "<group>"; };
 		DEE4FFEF2B3D7A470069AE4B /* BruteForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForce.swift; sourceTree = "<group>"; };
 		DEEDC7E82B99C72E007292AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../test-git/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DEFD80F42AE978E9000D5E4A /* ProfilePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhoto.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 		DE559F912AC499F900797548 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				DEDF96BD2BDA93EE00A7F66E /* FaceID */,
 				DEC90A782BD97D0900671676 /* Notifications */,
 				DE9C1A7C2AFBE838005233EA /* App */,
 				DE05CA722B9CEC55001FD03C /* Localization */,
@@ -439,6 +442,14 @@
 				DE4906A82B65271B003F87BA /* NetworkData.swift */,
 			);
 			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		DEDF96BD2BDA93EE00A7F66E /* FaceID */ = {
+			isa = PBXGroup;
+			children = (
+				DEDF96BE2BDA940900A7F66E /* LocalAuthorizationService.swift */,
+			);
+			path = FaceID;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -669,6 +680,7 @@
 				DED49A4C2B501BB8008B9078 /* NetworkService.swift in Sources */,
 				DEA3FBAC2AEEE7D30003E196 /* GalleryViewController.swift in Sources */,
 				DEC90A7A2BD97D6300671676 /* LocalNotificationsService.swift in Sources */,
+				DEDF96BF2BDA940900A7F66E /* LocalAuthorizationService.swift in Sources */,
 				DEB057852B33556300EE2C7C /* BaseCoordinator.swift in Sources */,
 				DE97B26A2ADC22B5006B2826 /* ProfilePost.swift in Sources */,
 				DE88B4D02B3DE6F700B29386 /* BannerViewController.swift in Sources */,
@@ -1033,6 +1045,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Navigation/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Разрешите FaceID";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Для досттупа к карте";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1065,6 +1078,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Navigation/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Разрешите FaceID";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Для досттупа к карте";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

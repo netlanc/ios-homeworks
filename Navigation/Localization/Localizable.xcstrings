@@ -409,6 +409,23 @@
         }
       }
     },
+    "login.button.login_face_id" : {
+      "comment" : "Log In FaceID",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log in using FacaID"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Войти по FacaID"
+          }
+        }
+      }
+    },
     "login.error.input-empty" : {
       "comment" : "Заполните пожалуйста логин и пароль",
       "localizations" : {
